@@ -25,6 +25,12 @@ class ComputeFromMassVelocityForm extends Component {
   render() {
     return (
       <Form horizontal>
+        <FormGroup>
+          <Col sm={2} />
+          <Col sm={8}>
+            Please enter the measured mass and velocity of the projectile. You may change the units used.
+          </Col>
+        </FormGroup>
         <FormGroup controlId="mass">
           <Col componentClass={ControlLabel} sm={2}>
             Mass
@@ -62,8 +68,14 @@ class ComputeFromMassVelocityForm extends Component {
           </Col>
         </FormGroup>
         <FormGroup controlId="validate">
-          <Col sm={12}>
-            <Button>Compute</Button>
+          <Col sm={2} />
+          <Col sm={8}>
+            <Button
+              disabled="true"
+              bsStyle="primary"
+              block="true">
+              Compute
+            </Button>
           </Col>
         </FormGroup>
       </Form>
