@@ -27,10 +27,11 @@ class ComputeFromMassVelocityForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      massRatio: '0.001',
+      energy: 0,
+      massRatio: 0.001,
       massUnit: 'g',
       massValue: '0.20',
-      velocityRatio: '0.3048',
+      velocityRatio: 0.3048,
       velocityUnit: 'fps',
       velocityValue: '350',
     };
@@ -71,9 +72,13 @@ class ComputeFromMassVelocityForm extends Component {
   }
 
   handleClick(event) {
-    alert(0.5 
+    const energy = 0.5 
       * this.state.massValue * this.state.massRatio 
-      * Math.pow(this.state.velocityValue * this.state.velocityRatio, 2));
+      * Math.pow(this.state.velocityValue * this.state.velocityRatio, 2);
+    this.setState({
+      energy: energy
+    });
+    alert(energy);
   }
 
   render() {
