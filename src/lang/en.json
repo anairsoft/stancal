@@ -1,0 +1,10 @@
+{
+    "name.short" : "ANA StanCal",
+    "viewdocs.text" : "View ANA StanCal Docs",
+    "viewdocs.link" : "https://github.com/anairsoft/stancal/wiki",
+    "compute.from" : "Compute from ...",
+    "compute.from.massvelocity.title" : "Mass and velocity",
+    "compute.from.massvelocity.description" : "Please enter the measured mass and velocity of the projectile. You may change the units used.",
+    "compute.from.massvelocity.massvalue.label" : "Mass",
+    "compute.from.massvelocity.massvalue.placeholder" : "Mass"
+}
