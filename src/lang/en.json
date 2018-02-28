@@ -1,8 +1,22 @@
 {
+  "app.compute.from": "Compute from ...",
   "app.docs.view.label": "View ANA StanCal Docs",
   "app.title.full": "ANA StanCal",
   "app.title.short": "ANA StanCal",
+  "compute.massvelocity.button.compute": "Compute",
   "compute.massvelocity.description": "Please enter the measured mass and velocity of the projectile. You may change the units used.",
   "compute.massvelocity.mass.label": "Mass",
-  "compute.massvelocity.velocity.label": "Velocity"
+  "compute.massvelocity.mass.unit.g": "grams (g)",
+  "compute.massvelocity.mass.unit.gr": "grains (gr)",
+  "compute.massvelocity.mass.unit.kg": "kilograms (kg)",
+  "compute.massvelocity.mass.unit.lb": "pounds (lb)",
+  "compute.massvelocity.mass.unit.mg": "milligrams (mg)",
+  "compute.massvelocity.mass.unit.oz": "ounces (oz)",
+  "compute.massvelocity.mass.unit.select": "Select unit ...",
+  "compute.massvelocity.velocity.label": "Velocity",
+  "compute.massvelocity.velocity.unit.fps": "feet per second (fps)",
+  "compute.massvelocity.velocity.unit.km/h": "kilometers per hour (km/h)",
+  "compute.massvelocity.velocity.unit.m/s": "meters per second (m/s)",
+  "compute.massvelocity.velocity.unit.mph": "miles per hour (mph)",
+  "compute.massvelocity.velocity.unit.select": "Select unit ..."
 }

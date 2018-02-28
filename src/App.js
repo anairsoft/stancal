@@ -35,8 +35,7 @@ class App extends Component {
                 <a href="/">
                   <FormattedMessage
                     id="app.title.short"
-                    defaultMessage="ANA StanCal"
-                  />
+                    defaultMessage="ANA StanCal" />
                 </a>
               </Navbar.Brand>
               <Navbar.Toggle />
@@ -48,20 +47,17 @@ class App extends Component {
             <h1>
               <FormattedMessage
                 id="app.title.full"
-                defaultMessage="ANA StanCal"
-              />
+                defaultMessage="ANA StanCal" />
             </h1>
             <p>
               <Button
                 bsStyle="info"
                 bsSize="large"
                 href="https://github.com/anairsoft/stancal/wiki"
-                target="_blank"
-              > 
+                target="_blank"> 
                 <FormattedMessage
                   id="app.docs.view.label"
-                  defaultMessage="View ANA StanCal Docs"
-                />
+                  defaultMessage="View ANA StanCal Docs" />
               </Button>
             </p>
           </Grid>
@@ -69,7 +65,11 @@ class App extends Component {
         <Grid>
           <Panel>
             <Panel.Heading>
-              <Panel.Title>Compute from ...</Panel.Title>
+              <Panel.Title>
+                <FormattedMessage
+                  id="app.compute.from"
+                  defaultMessage="Compute from ..." />
+              </Panel.Title>
             </Panel.Heading>
             <Panel.Body>
               <Tabs defaultActiveKey={1}>

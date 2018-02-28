@@ -90,8 +90,7 @@ class ComputeFromMassVelocityForm extends Component {
           <Col sm={8}>
             <FormattedMessage
               id="compute.massvelocity.description"
-              defaultMessage="Please enter the measured mass and velocity of the projectile. You may change the units used."
-            />
+              defaultMessage="Please enter the measured mass and velocity of the projectile. You may change the units used." />
           </Col>
         </FormGroup>
         <FormGroup controlId="mass"
@@ -99,10 +98,9 @@ class ComputeFromMassVelocityForm extends Component {
           <Col componentClass={ControlLabel} sm={2}>
             <FormattedMessage
               id="compute.massvelocity.mass.label"
-              defaultMessage="Mass"
-            />
+              defaultMessage="Mass" />
           </Col>
-          <Col sm={6}>
+          <Col sm={5}>
             <InputGroup>
               <FormControl name="massValue" type="text" placeholder="Mass"
                 value={this.state.massValue}
@@ -110,28 +108,27 @@ class ComputeFromMassVelocityForm extends Component {
               <InputGroup.Addon>{this.state.massUnit}</InputGroup.Addon>
             </InputGroup>
           </Col>
-          <Col sm={2}>
+          <Col sm={3}>
             <FormControl name="massUnit" componentClass="select"
               onChange={this.handleChange}>
-              <option value="g">Select unit ...</option>
-              <option value="mg">milligrams (mg)</option>
-              <option value="g">grams (g)</option>
-              <option value="kg">kilograms (kg)</option>
-              <option value="gr">grains (gr)</option>
-              <option value="oz">ounces (oz)</option>
-              <option value="lb">pounds (lb)</option>
+              <option value="g"><FormattedMessage id="compute.massvelocity.mass.unit.select" defaultMessage="Select unit ..."/></option>
+              <option value="mg"><FormattedMessage id="compute.massvelocity.mass.unit.mg" defaultMessage="milligrams (mg)"/></option>
+              <option value="g"><FormattedMessage id="compute.massvelocity.mass.unit.g" defaultMessage="grams (g)"/></option>
+              <option value="kg"><FormattedMessage id="compute.massvelocity.mass.unit.kg" defaultMessage="kilograms (kg)"/></option>
+              <option value="gr"><FormattedMessage id="compute.massvelocity.mass.unit.gr" defaultMessage="grains (gr)"/></option>
+              <option value="oz"><FormattedMessage id="compute.massvelocity.mass.unit.oz" defaultMessage="ounces (oz)"/></option>
+              <option value="lb"><FormattedMessage id="compute.massvelocity.mass.unit.lb" defaultMessage="pounds (lb)"/></option>
             </FormControl>
           </Col>
         </FormGroup>
         <FormGroup controlId="velocity"
           validationState={this.getValidationState(this.state.velocityValue)}>
           <Col componentClass={ControlLabel} sm={2}>
-          <FormattedMessage
+            <FormattedMessage
               id="compute.massvelocity.velocity.label"
-              defaultMessage="Velocity"
-            />
+              defaultMessage="Velocity" />
           </Col>
-          <Col sm={6}>
+          <Col sm={5}>
             <InputGroup>
               <FormControl name="velocityValue" type="text" placeholder="Velocity"
                 value={this.state.velocityValue}
@@ -139,14 +136,14 @@ class ComputeFromMassVelocityForm extends Component {
               <InputGroup.Addon>{this.state.velocityUnit}</InputGroup.Addon>
             </InputGroup>
           </Col>
-          <Col sm={2}>
+          <Col sm={3}>
             <FormControl name="velocityUnit" componentClass="select"
               onChange={this.handleChange}>
-              <option value="fps">Select unit ...</option>
-              <option value="m/s">meters per second (m/s)</option>
-              <option value="km/h">kilometers per hour (km/h)</option>
-              <option value="fps">feet per second (fps)</option>
-              <option value="mph">miles per hour (mph)</option>
+              <option value="fps"><FormattedMessage id="compute.massvelocity.velocity.unit.select" defaultMessage="Select unit ..."/></option>
+              <option value="m/s"><FormattedMessage id="compute.massvelocity.velocity.unit.m/s" defaultMessage="meters per second (m/s)"/></option>
+              <option value="km/h"><FormattedMessage id="compute.massvelocity.velocity.unit.km/h" defaultMessage="kilometers per hour (km/h)"/></option>
+              <option value="fps"><FormattedMessage id="compute.massvelocity.velocity.unit.fps" defaultMessage="feet per second (fps)"/></option>
+              <option value="mph"><FormattedMessage id="compute.massvelocity.velocity.unit.mph" defaultMessage="miles per hour (mph)"/></option>
             </FormControl>
           </Col>
         </FormGroup>
@@ -158,7 +155,10 @@ class ComputeFromMassVelocityForm extends Component {
               bsStyle="primary"
               block="true"
               onClick={this.handleClick}>
-              Compute
+              <FormattedMessage
+                id="compute.massvelocity.button.compute"
+                defaultMessage="Compute"
+              />
             </Button>
           </Col>
         </FormGroup>
