@@ -1,0 +1,8 @@
+{
+  "app.docs.view.label": "Consulter la documentation d'ANA StanCal",
+  "app.title.full": "ANA StanCal",
+  "app.title.short": "ANA StanCal",
+  "compute.massvelocity.description": "Veuillez entrer la masse et la vitesse mesurées du projectile. Vous pouvez changer les unités utilisées.",
+  "compute.massvelocity.mass.label": "Masse",
+  "compute.massvelocity.velocity.label": "Vitesse"
+}

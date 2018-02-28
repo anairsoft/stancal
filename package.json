@@ -4,17 +4,26 @@
   "private": true,
   "license": "GPL-3.0",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-react-intl": "^2.4.0",
+    "babel-preset-react-app": "^3.1.1",
     "bootstrap": "3",
-    "polyglot": "^0.5.0",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
+    "react-intl": "^2.4.0",
     "react-scripts": "1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "translate:extract": "NODE_ENV=production babel ./src >/dev/null",
+    "translate:extract:win": "cmd /V /C \"set NODE_ENV=production&& babel ./src > NUL\"",
+    "translate:build": "node ./scripts/translate.js"
+  },
+  "devDependencies": {
+    "react-intl-translations-manager": "^5.0.1"
   }
 }

@@ -20,6 +20,7 @@ import {
   FormGroup,
   InputGroup
 } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 
 class ComputeFromMassVelocityForm extends Component {
   constructor(props, context) {
@@ -87,13 +88,19 @@ class ComputeFromMassVelocityForm extends Component {
         <FormGroup>
           <Col sm={2} />
           <Col sm={8}>
-            Please enter the measured mass and velocity of the projectile. You may change the units used.
+            <FormattedMessage
+              id="compute.massvelocity.description"
+              defaultMessage="Please enter the measured mass and velocity of the projectile. You may change the units used."
+            />
           </Col>
         </FormGroup>
         <FormGroup controlId="mass"
           validationState={this.getValidationState(this.state.massValue)}>
           <Col componentClass={ControlLabel} sm={2}>
-            Mass
+            <FormattedMessage
+              id="compute.massvelocity.mass.label"
+              defaultMessage="Mass"
+            />
           </Col>
           <Col sm={6}>
             <InputGroup>
@@ -104,7 +111,7 @@ class ComputeFromMassVelocityForm extends Component {
             </InputGroup>
           </Col>
           <Col sm={2}>
-            <FormControl name="massUnit" componentClass="select" placeholder="Unit"
+            <FormControl name="massUnit" componentClass="select"
               onChange={this.handleChange}>
               <option value="g">Select unit ...</option>
               <option value="mg">milligrams (mg)</option>
@@ -119,7 +126,10 @@ class ComputeFromMassVelocityForm extends Component {
         <FormGroup controlId="velocity"
           validationState={this.getValidationState(this.state.velocityValue)}>
           <Col componentClass={ControlLabel} sm={2}>
-            Velocity
+          <FormattedMessage
+              id="compute.massvelocity.velocity.label"
+              defaultMessage="Velocity"
+            />
           </Col>
           <Col sm={6}>
             <InputGroup>
@@ -130,7 +140,7 @@ class ComputeFromMassVelocityForm extends Component {
             </InputGroup>
           </Col>
           <Col sm={2}>
-            <FormControl name="velocityUnit" componentClass="select" placeholder="Unit"
+            <FormControl name="velocityUnit" componentClass="select"
               onChange={this.handleChange}>
               <option value="fps">Select unit ...</option>
               <option value="m/s">meters per second (m/s)</option>

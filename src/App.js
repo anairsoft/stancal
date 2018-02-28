@@ -20,6 +20,7 @@ import {
   Tab, 
   Tabs
 } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 import ComputeFromMassVelocityForm from './components/ComputeFromMassVelocityForm'
 import './App.css';
 
@@ -31,7 +32,12 @@ class App extends Component {
           <Grid>
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="/">ANA StanCal</a>
+                <a href="/">
+                  <FormattedMessage
+                    id="app.title.short"
+                    defaultMessage="ANA StanCal"
+                  />
+                </a>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
@@ -39,14 +45,23 @@ class App extends Component {
         </Navbar>
         <Jumbotron>
           <Grid>
-            <h1>ANA StanCal</h1>
+            <h1>
+              <FormattedMessage
+                id="app.title.full"
+                defaultMessage="ANA StanCal"
+              />
+            </h1>
             <p>
               <Button
                 bsStyle="info"
                 bsSize="large"
                 href="https://github.com/anairsoft/stancal/wiki"
-                target="_blank">
-                View ANA StanCal Docs
+                target="_blank"
+              > 
+                <FormattedMessage
+                  id="app.docs.view.label"
+                  defaultMessage="View ANA StanCal Docs"
+                />
               </Button>
             </p>
           </Grid>
