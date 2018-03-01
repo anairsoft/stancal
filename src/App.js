@@ -20,12 +20,28 @@ import {
   Tab, 
   Tabs
 } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
 import ComputeFromMassVelocityForm from './components/ComputeFromMassVelocityForm'
 import './App.css';
 
+const messages = defineMessages({
+  viewDocsLink: {
+    id: 'app.docs.view.link',
+    defaultMessage: 'https://github.com/anairsoft/stancal/wiki',
+  },
+  massvelocityTab: {
+    id: 'compute.massvelocity.tab',
+    defaultMessage: 'Mass and velocity',
+  },
+  energyTag: {
+    id: 'compute.energy.tab',
+    defaultMessage: 'Energy',
+  },
+});
+
 class App extends Component {
   render() {
+    const {formatMessage} = this.props.intl;
     return (
       <div>
         <Navbar inverse fixedTop>
@@ -53,7 +69,7 @@ class App extends Component {
               <Button
                 bsStyle="info"
                 bsSize="large"
-                href="https://github.com/anairsoft/stancal/wiki"
+                href={formatMessage(messages.viewDocsLink)}
                 target="_blank"> 
                 <FormattedMessage
                   id="app.docs.view.label"
@@ -73,10 +89,10 @@ class App extends Component {
             </Panel.Heading>
             <Panel.Body>
               <Tabs defaultActiveKey={1}>
-                <Tab eventKey={1} title="Mass and velocity">
+                <Tab eventKey={1} title={formatMessage(messages.massvelocityTab)}>
                   <ComputeFromMassVelocityForm />
                 </Tab>
-                <Tab eventKey={2} title="Energy">
+                <Tab eventKey={2} title={formatMessage(messages.energyTag)}>
                 </Tab>
               </Tabs>
             </Panel.Body>
@@ -87,4 +103,8 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  intl: intlShape.isRequired,
+};
+
+export default injectIntl(App);

@@ -20,7 +20,18 @@ import {
   FormGroup,
   InputGroup
 } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
+
+const messages = defineMessages({
+  massPlaceholder: {
+    id: 'compute.massvelocity.mass.placeholder',
+    defaultMessage: 'Mass',
+  },
+  velocityPlaceholder: {
+    id: 'compute.massvelocity.velocity.placeholder',
+    defaultMessage: 'Velocity',
+  },
+});
 
 class ComputeFromMassVelocityForm extends Component {
   constructor(props, context) {
@@ -83,6 +94,7 @@ class ComputeFromMassVelocityForm extends Component {
   }
 
   render() {
+    const {formatMessage} = this.props.intl;
     return (
       <Form horizontal>
         <FormGroup>
@@ -102,7 +114,7 @@ class ComputeFromMassVelocityForm extends Component {
           </Col>
           <Col sm={5}>
             <InputGroup>
-              <FormControl name="massValue" type="text" placeholder="Mass"
+              <FormControl name="massValue" type="text" placeholder={formatMessage(messages.massPlaceholder)}
                 value={this.state.massValue}
                 onChange={this.handleChange} />
               <InputGroup.Addon>{this.state.massUnit}</InputGroup.Addon>
@@ -130,7 +142,7 @@ class ComputeFromMassVelocityForm extends Component {
           </Col>
           <Col sm={5}>
             <InputGroup>
-              <FormControl name="velocityValue" type="text" placeholder="Velocity"
+              <FormControl name="velocityValue" type="text" placeholder={formatMessage(messages.velocityPlaceholder)}
                 value={this.state.velocityValue}
                 onChange={this.handleChange} />
               <InputGroup.Addon>{this.state.velocityUnit}</InputGroup.Addon>
@@ -167,4 +179,8 @@ class ComputeFromMassVelocityForm extends Component {
   }
 }
 
-export default ComputeFromMassVelocityForm;
+ComputeFromMassVelocityForm.propTypes = {
+  intl: intlShape.isRequired,
+};
+
+export default injectIntl(ComputeFromMassVelocityForm);
