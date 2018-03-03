@@ -1,11 +1,12 @@
 {
+  "ana.protectiveeyewear.docs.view.label": "View ANA Protective Eyewear and Standards Docs",
   "app.compute.from": "Compute from ...",
+  "app.copyright.text": "Copyright 2018 Association de Normalisation de l'Airsoft.\n              Distributed under the terms of the GNU GPL v3 license.",
   "app.docs.view.label": "View ANA StanCal Docs",
   "app.docs.view.link": "https://github.com/anairsoft/stancal/wiki",
-  "app.title.full": "ANA StanCal",
+  "app.info.text": "ANA StanCal is an open source software aiming to helping people to determine\n              which protective eyewear to use during airsoft games. It is developed by the Association de\n              Normalisation de l'Airsoft.",
   "app.title.short": "ANA StanCal",
   "compute.energy.tab": "Energy",
-  "compute.massvelocity.button.compute": "Compute",
   "compute.massvelocity.description": "Please enter the measured mass and velocity of the projectile. You may change the units used.",
   "compute.massvelocity.mass.label": "Mass",
   "compute.massvelocity.mass.placeholder": "Mass",
@@ -23,5 +24,8 @@
   "compute.massvelocity.velocity.unit.km/h": "kilometers per hour (km/h)",
   "compute.massvelocity.velocity.unit.m/s": "meters per second (m/s)",
   "compute.massvelocity.velocity.unit.mph": "miles per hour (mph)",
-  "compute.massvelocity.velocity.unit.select": "Select unit ..."
+  "compute.massvelocity.velocity.unit.select": "Select unit ...",
+  "compute.result.energy.label": "Energy of projectile:",
+  "compute.result.mass.label": "Mass of projectile:",
+  "compute.result.velocity.label": "Velocity of projectile:"
 }
