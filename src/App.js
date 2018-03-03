@@ -12,11 +12,13 @@
 
 import React, { Component } from 'react';
 import {
-  Button,
+  Glyphicon,
   Grid,
-  Jumbotron,
-  Navbar, 
-  Panel, 
+  Nav,
+  Navbar,
+  NavItem,
+  Panel,
+  Row,
   Tab, 
   Tabs
 } from 'react-bootstrap';
@@ -48,7 +50,7 @@ class App extends Component {
           <Grid>
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="/">
+                <a href="https://github.com/anairsoft/stancal">
                   <FormattedMessage
                     id="app.title.short"
                     defaultMessage="ANA StanCal" />
@@ -56,29 +58,22 @@ class App extends Component {
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
-          </Grid>
-        </Navbar>
-        <Jumbotron>
-          <Grid>
-            <h1>
-              <FormattedMessage
-                id="app.title.full"
-                defaultMessage="ANA StanCal" />
-            </h1>
-            <p>
-              <Button
-                bsStyle="info"
-                bsSize="large"
-                href={formatMessage(messages.viewDocsLink)}
-                target="_blank"> 
+            <Nav>
+              <NavItem eventKey={1} href={formatMessage(messages.viewDocsLink)}>
                 <FormattedMessage
                   id="app.docs.view.label"
                   defaultMessage="View ANA StanCal Docs" />
-              </Button>
-            </p>
+              </NavItem>
+              <NavItem eventKey={1} href={formatMessage(messages.viewDocsLink)}>
+                <FormattedMessage
+                  id="ana.protectiveeyewear.docs.view.label"
+                  defaultMessage="View ANA Protective Eyewear and Standards Docs" />
+              </NavItem>
+            </Nav>
           </Grid>
-        </Jumbotron>
+        </Navbar>
         <Grid>
+          <Row>&nbsp;</Row><Row>&nbsp;</Row><Row>&nbsp;</Row>
           <Panel>
             <Panel.Heading>
               <Panel.Title>
@@ -97,6 +92,21 @@ class App extends Component {
               </Tabs>
             </Panel.Body>
           </Panel>
+          <Row>
+            <Glyphicon glyph="info-sign" /> &nbsp; 
+            <FormattedMessage
+              id="app.info.text"
+              defaultMessage="ANA StanCal is an open source software aiming to helping people to determine
+              which protective eyewear to use during airsoft games. It is developed by the Association de
+              Normalisation de l'Airsoft." />
+          </Row>
+          <Row>
+            <Glyphicon glyph="copyright-mark" /> &nbsp; 
+            <FormattedMessage
+              id="app.copyright.text"
+              defaultMessage="Copyright 2018 Association de Normalisation de l'Airsoft.
+              Distributed under the terms of the GNU GPL v3 license." />
+          </Row>
         </Grid>
       </div>
     );
