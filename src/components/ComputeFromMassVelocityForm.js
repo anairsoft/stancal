@@ -12,26 +12,91 @@
 
 import React, { Component } from 'react';
 import {
-  Button,
   Col,
-  ControlLabel,
   Form, 
-  FormControl, 
   FormGroup,
-  InputGroup,
-  Row,
 } from 'react-bootstrap';
 import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
-import StandardChecker from './StandardChecker';
+import InputValueUnit from './InputValueUnit';
+import RowStandard from './RowStandard';
+import RowValueUnit from './RowValueUnit';
 
 const messages = defineMessages({
+  massLabel: {
+    id: 'compute.massvelocity.mass.label',
+    defaultMessage: 'Mass',
+  },
   massPlaceholder: {
     id: 'compute.massvelocity.mass.placeholder',
     defaultMessage: 'Mass',
   },
+  massUnitSelect: {
+    id: 'compute.massvelocity.mass.unit.select',
+    defaultMessage: 'Select unit ...',
+  },
+  massUnitMg: {
+    id: 'compute.massvelocity.mass.unit.mg',
+    defaultMessage: 'milligrams (mg)',
+  },
+  massUnitG: {
+    id: 'compute.massvelocity.mass.unit.g',
+    defaultMessage: 'grams (g)',
+  },
+  massUnitKg: {
+    id: 'compute.massvelocity.mass.unit.kg',
+    defaultMessage: 'kilograms (kg)',
+  },
+  massUnitGr: {
+    id: 'compute.massvelocity.mass.unit.gr',
+    defaultMessage: 'grains (gr)',
+  },
+  massUnitOz: {
+    id: 'compute.massvelocity.mass.unit.oz',
+    defaultMessage: 'ounces (oz)',
+  },
+  massUnitLb: {
+    id: 'compute.massvelocity.mass.unit.lb',
+    defaultMessage: 'pounds (lb)',
+  },
+  resultEnergyLabel: {
+    id: 'compute.result.energy.label',
+    defaultMessage: 'Energy of projectile:',
+  },
+  resultMassLabel: {
+    id: 'compute.result.mass.label',
+    defaultMessage: 'Mass of projectile:',
+  },
+  resultVelocityLabel: {
+    id: 'compute.result.velocity.label',
+    defaultMessage: 'Velocity of projectile:',
+  },
+  velocityLabel: {
+    id: 'compute.massvelocity.velocity.label',
+    defaultMessage: 'Velocity',
+  },
   velocityPlaceholder: {
     id: 'compute.massvelocity.velocity.placeholder',
     defaultMessage: 'Velocity',
+  },
+  velocityUnitSelect: {
+    id: 'compute.massvelocity.velocity.unit.select',
+    defaultMessage: 'Select unit ...',
+  },
+  velocityUnitMs: {
+    id: 'compute.massvelocity.velocity.unit.m/s',
+    defaultMessage: 'meters per second (m/s)',
+  },
+  velocityUnitKmh: {
+    id: 'compute.massvelocity.velocity.unit.km/h',
+    defaultMessage: 'kilometers per hour (km/h)',
+  },
+  velocityUnitFps: {
+    id: 'compute.massvelocity.velocity.unit.fps',
+    defaultMessage: 'feet per second (fps)',
+  },
+  velocityUnitMph: {
+    id: 'compute.massvelocity.velocity.unit.mph',
+    defaultMessage: 'miles per hour (mph)',
   },
 });
 
@@ -39,9 +104,7 @@ class ComputeFromMassVelocityForm extends Component {
   constructor(props, context) {
     super(props, context);
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
     this.state = {
-      energy: 0,
       massRatio: 0.001,
       massUnit: 'g',
       massValue: '0.20',
@@ -85,17 +148,11 @@ class ComputeFromMassVelocityForm extends Component {
     }
   }
 
-  handleClick(event) {
-    const energy = 0.5 
-      * this.state.massValue * this.state.massRatio 
-      * Math.pow(this.state.velocityValue * this.state.velocityRatio, 2);
-    this.setState({
-      energy: energy
-    });
-  }
-
   render() {
     const {formatMessage} = this.props.intl;
+    const energy = this.getDisabledState() ? NaN : 0.5 
+      * this.state.massValue * this.state.massRatio 
+      * Math.pow(this.state.velocityValue * this.state.velocityRatio, 2);
     return (
       <Form horizontal>
         <FormGroup>
@@ -106,94 +163,49 @@ class ComputeFromMassVelocityForm extends Component {
               defaultMessage="Please enter the measured mass and velocity of the projectile. You may change the units used." />
           </Col>
         </FormGroup>
-        <FormGroup controlId="mass"
-          validationState={this.getValidationState(this.state.massValue)}>
-          <Col componentClass={ControlLabel} sm={2}>
-            <FormattedMessage
-              id="compute.massvelocity.mass.label"
-              defaultMessage="Mass" />
-          </Col>
-          <Col sm={5}>
-            <InputGroup>
-              <FormControl name="massValue" type="text" placeholder={formatMessage(messages.massPlaceholder)}
-                value={this.state.massValue}
-                onChange={this.handleChange} />
-              <InputGroup.Addon>{this.state.massUnit}</InputGroup.Addon>
-            </InputGroup>
-          </Col>
-          <Col sm={3}>
-            <FormControl name="massUnit" componentClass="select"
-              onChange={this.handleChange}>
-              <option value="g"><FormattedMessage id="compute.massvelocity.mass.unit.select" defaultMessage="Select unit ..."/></option>
-              <option value="mg"><FormattedMessage id="compute.massvelocity.mass.unit.mg" defaultMessage="milligrams (mg)"/></option>
-              <option value="g"><FormattedMessage id="compute.massvelocity.mass.unit.g" defaultMessage="grams (g)"/></option>
-              <option value="kg"><FormattedMessage id="compute.massvelocity.mass.unit.kg" defaultMessage="kilograms (kg)"/></option>
-              <option value="gr"><FormattedMessage id="compute.massvelocity.mass.unit.gr" defaultMessage="grains (gr)"/></option>
-              <option value="oz"><FormattedMessage id="compute.massvelocity.mass.unit.oz" defaultMessage="ounces (oz)"/></option>
-              <option value="lb"><FormattedMessage id="compute.massvelocity.mass.unit.lb" defaultMessage="pounds (lb)"/></option>
-            </FormControl>
-          </Col>
-        </FormGroup>
-        <FormGroup controlId="velocity"
-          validationState={this.getValidationState(this.state.velocityValue)}>
-          <Col componentClass={ControlLabel} sm={2}>
-            <FormattedMessage
-              id="compute.massvelocity.velocity.label"
-              defaultMessage="Velocity" />
-          </Col>
-          <Col sm={5}>
-            <InputGroup>
-              <FormControl name="velocityValue" type="text" placeholder={formatMessage(messages.velocityPlaceholder)}
-                value={this.state.velocityValue}
-                onChange={this.handleChange} />
-              <InputGroup.Addon>{this.state.velocityUnit}</InputGroup.Addon>
-            </InputGroup>
-          </Col>
-          <Col sm={3}>
-            <FormControl name="velocityUnit" componentClass="select"
-              onChange={this.handleChange}>
-              <option value="fps"><FormattedMessage id="compute.massvelocity.velocity.unit.select" defaultMessage="Select unit ..."/></option>
-              <option value="m/s"><FormattedMessage id="compute.massvelocity.velocity.unit.m/s" defaultMessage="meters per second (m/s)"/></option>
-              <option value="km/h"><FormattedMessage id="compute.massvelocity.velocity.unit.km/h" defaultMessage="kilometers per hour (km/h)"/></option>
-              <option value="fps"><FormattedMessage id="compute.massvelocity.velocity.unit.fps" defaultMessage="feet per second (fps)"/></option>
-              <option value="mph"><FormattedMessage id="compute.massvelocity.velocity.unit.mph" defaultMessage="miles per hour (mph)"/></option>
-            </FormControl>
-          </Col>
-        </FormGroup>
-        <FormGroup controlId="validate">
-          <Col sm={2} />
-          <Col sm={8}>
-            <Button
-              disabled={this.getDisabledState()}
-              bsStyle="primary"
-              block="true"
-              onClick={this.handleClick}>
-              <FormattedMessage
-                id="compute.massvelocity.button.compute"
-                defaultMessage="Compute"
-              />
-            </Button>
-          </Col>
-        </FormGroup>
-        <Row>
-          <Col sm={2}></Col>
-          <Col sm={3}>Mass of projectile:</Col>
-          <Col sm={3}>{this.state.massValue}{this.state.massUnit}</Col>
-        </Row>
-        <Row>
-          <Col sm={2}></Col>
-          <Col sm={3}>Velocity of projectile:</Col>
-          <Col sm={3}>{this.state.velocityValue}{this.state.velocityUnit}</Col>
-        </Row>
-        <Row>
-          <Col sm={2}></Col>
-          <Col sm={3}>Energy of projectile:</Col>
-          <Col sm={3}>{this.state.energy}J</Col>
-        </Row>
-        <StandardChecker value={this.state.energy} max={0.87075} label="EN 166 F" />
-        <StandardChecker value={this.state.energy} max={6.192} label="EN 166 B" />
-        <StandardChecker value={this.state.energy} max={15.523} label="EN 166 A" />
-        <StandardChecker value={this.state.energy} max={7.51} label="STANAG 4296" />
+        <InputValueUnit
+          label={formatMessage(messages.massLabel)}
+          name="mass"
+          placeholder={formatMessage(messages.massPlaceholder)}
+          onChange={this.handleChange}
+          unit={this.state.massUnit}
+          units={[
+            ["g", formatMessage(messages.massUnitSelect)],
+            ["mg", formatMessage(messages.massUnitMg)],
+            ["g", formatMessage(messages.massUnitG)],
+            ["kg", formatMessage(messages.massUnitKg)],
+            ["gr", formatMessage(messages.massUnitGr)],
+            ["oz", formatMessage(messages.massUnitOz)],
+            ["lb", formatMessage(messages.massUnitLb)],
+          ]}
+          value={this.state.massValue} />
+        <InputValueUnit
+          label={formatMessage(messages.velocityLabel)}
+          name="velocity"
+          placeholder={formatMessage(messages.velocityPlaceholder)}
+          onChange={this.handleChange}
+          unit={this.state.velocityUnit}
+          units={[
+            ["fps", formatMessage(messages.velocityUnitSelect)],
+            ["m/s", formatMessage(messages.velocityUnitMs)],
+            ["km/h", formatMessage(messages.velocityUnitKmh)],
+            ["fps", formatMessage(messages.velocityUnitFps)],
+            ["mph", formatMessage(messages.velocityUnitMph)],
+          ]}
+          value={this.state.velocityValue} />
+        <RowValueUnit label={formatMessage(messages.resultMassLabel)} 
+          value={this.state.massValue} unit={this.state.massUnit} />
+        <RowValueUnit label={formatMessage(messages.resultVelocityLabel)}
+          value={this.state.velocityValue} unit={this.state.velocityUnit} />
+        <RowValueUnit label={formatMessage(messages.resultEnergyLabel)} value={energy} unit="J" />
+        <RowStandard value={energy} max={0.87075} label="EN 166 F (Spectacles)" />
+        <RowStandard value={energy} max={6.192} label="EN 166 B (Goggles)" />
+        <RowStandard value={energy} max={15.523} label="EN 166 A (Faceshields)" />
+        <RowStandard value={energy} max={7.51} label="STANAG 4296" />
+        <RowStandard value={energy} max={1.107868752} label="ANSI Z87.1+ (Spectacles)" />
+        <RowStandard value={energy} max={3.0774132} label="ANSI Z87.1+ (Goggles)" />
+        <RowStandard value={energy} max={7.150814378435543} label="MIL-PRF-31013" />
+        <RowStandard value={energy} max={15.02369943189588} label="MIL-DTL-43511D" />
       </Form>
     );
   }

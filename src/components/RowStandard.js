@@ -19,7 +19,7 @@ import {
   Row,
 } from 'react-bootstrap';
 
-class StandardChecker extends Component {
+class RowStandard extends Component {
   render() {
     const progress = 100 * this.props.value / this.props.max;
     var style = "danger", glyph = "remove";
@@ -32,12 +32,16 @@ class StandardChecker extends Component {
     }
     return (
       <Row>
-          <Col sm={2}></Col>
-          <Col sm={3}><ProgressBar bsStyle={style} now={progress} /></Col>
-          <Col sm={3}><Label bsStyle={style}><Glyphicon glyph={glyph} /> &nbsp; {this.props.label}</Label></Col>
-        </Row>
+        <Col sm={2}></Col>
+        <Col sm={3}><ProgressBar bsStyle={style} now={progress} /></Col>
+        <Col sm={3}><Label bsStyle={style}><Glyphicon glyph={glyph} /> &nbsp; {this.props.label}</Label></Col>
+        <Col sm={2}>
+          <Glyphicon glyph="question-sign" /> &nbsp; 
+          <Glyphicon glyph="new-window" />
+        </Col>
+      </Row>
     );
   }
 }
 
-export default StandardChecker;
+export default RowStandard;
