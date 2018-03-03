@@ -18,9 +18,11 @@ import {
   Form, 
   FormControl, 
   FormGroup,
-  InputGroup
+  InputGroup,
+  Row,
 } from 'react-bootstrap';
 import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
+import StandardChecker from './StandardChecker';
 
 const messages = defineMessages({
   massPlaceholder: {
@@ -90,7 +92,6 @@ class ComputeFromMassVelocityForm extends Component {
     this.setState({
       energy: energy
     });
-    alert(energy);
   }
 
   render() {
@@ -174,6 +175,25 @@ class ComputeFromMassVelocityForm extends Component {
             </Button>
           </Col>
         </FormGroup>
+        <Row>
+          <Col sm={2}></Col>
+          <Col sm={3}>Mass of projectile:</Col>
+          <Col sm={3}>{this.state.massValue}{this.state.massUnit}</Col>
+        </Row>
+        <Row>
+          <Col sm={2}></Col>
+          <Col sm={3}>Velocity of projectile:</Col>
+          <Col sm={3}>{this.state.velocityValue}{this.state.velocityUnit}</Col>
+        </Row>
+        <Row>
+          <Col sm={2}></Col>
+          <Col sm={3}>Energy of projectile:</Col>
+          <Col sm={3}>{this.state.energy}J</Col>
+        </Row>
+        <StandardChecker value={this.state.energy} max={0.87075} label="EN 166 F" />
+        <StandardChecker value={this.state.energy} max={6.192} label="EN 166 B" />
+        <StandardChecker value={this.state.energy} max={15.523} label="EN 166 A" />
+        <StandardChecker value={this.state.energy} max={7.51} label="STANAG 4296" />
       </Form>
     );
   }
