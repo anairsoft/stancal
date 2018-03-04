@@ -39,9 +39,13 @@ const messages = defineMessages({
     id: 'compute.massvelocity.tab',
     defaultMessage: 'Mass and velocity',
   },
-  viewDocsLink: {
+  viewAppDocsLink: {
     id: 'app.docs.view.link',
     defaultMessage: 'https://github.com/anairsoft/stancal/wiki',
+  },
+  viewAnaDocsLink: {
+    id: 'ana.protectiveeyewear.docs.view.link',
+    defaultMessage: 'https://ana.asso.fr/en/recommendations/eyewear-protections/eyewear-protections-study/',
   },
 });
 
@@ -63,12 +67,12 @@ class App extends Component {
               <Navbar.Toggle />
             </Navbar.Header>
             <Nav>
-              <NavItem eventKey={1} href={formatMessage(messages.viewDocsLink)}>
+              <NavItem eventKey={1} href={formatMessage(messages.viewAppDocsLink)}>
                 <FormattedMessage
                   id="app.docs.view.label"
                   defaultMessage="View ANA StanCal Docs" />
               </NavItem>
-              <NavItem eventKey={1} href={formatMessage(messages.viewDocsLink)}>
+              <NavItem eventKey={1} href={formatMessage(messages.viewAnaDocsLink)}>
                 <FormattedMessage
                   id="ana.protectiveeyewear.docs.view.label"
                   defaultMessage="View ANA Protective Eyewear and Standards Docs" />
