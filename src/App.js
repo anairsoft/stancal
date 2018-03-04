@@ -66,18 +66,20 @@ class App extends Component {
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
-            <Nav>
-              <NavItem eventKey={1} href={formatMessage(messages.viewAppDocsLink)}>
-                <FormattedMessage
-                  id="app.docs.view.label"
-                  defaultMessage="View ANA StanCal Docs" />
-              </NavItem>
-              <NavItem eventKey={1} href={formatMessage(messages.viewAnaDocsLink)}>
-                <FormattedMessage
-                  id="ana.protectiveeyewear.docs.view.label"
-                  defaultMessage="View ANA Protective Eyewear and Standards Docs" />
-              </NavItem>
-            </Nav>
+            <Navbar.Collapse>
+              <Nav>
+                <NavItem eventKey={1} href={formatMessage(messages.viewAppDocsLink)}>
+                  <FormattedMessage
+                    id="app.docs.view.label"
+                    defaultMessage="View ANA StanCal Docs" />
+                </NavItem>
+                <NavItem eventKey={1} href={formatMessage(messages.viewAnaDocsLink)}>
+                  <FormattedMessage
+                    id="ana.protectiveeyewear.docs.view.label"
+                    defaultMessage="View ANA Protective Eyewear and Standards Docs" />
+                </NavItem>
+              </Nav>
+            </Navbar.Collapse>
           </Grid>
         </Navbar>
         <Grid>
