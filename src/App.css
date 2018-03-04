@@ -1,0 +1,40 @@
+/*
+ * This file is part of ANA StanCal.
+ * See: <https://github.com/anairsoft/stancal>.
+ *
+ * Copyright (C) 2018 Association de Normalisation de l'Airsoft <contact@ana.asso.fr>.
+ * Copyright (C) 2018 Jérémy Walther <jeremy.walther@golflima.net>.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ * Otherwise, see: <https://www.gnu.org/licenses/gpl-3.0>.
+ */
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
