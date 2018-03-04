@@ -19,6 +19,7 @@ import {
 import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
 import ComputationResult from './ComputationResult';
 import InputValueUnit from './InputValueUnit';
+import { isNullOrUndefined, isString } from 'util';
 
 const messages = defineMessages({
   massLabel: {
@@ -91,6 +92,7 @@ class ComputeFromMassVelocityForm extends Component {
   constructor(props, context) {
     super(props, context);
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       massRatio: 0.001,
       massUnit: 'g',
@@ -135,6 +137,29 @@ class ComputeFromMassVelocityForm extends Component {
     }
   }
 
+  handleClick(event) {
+    const name = event.target.value;
+    const valueRaw = String(this.state[name]);
+    console.log('handleClick: "' + name + '" = "' + valueRaw + '"');
+    if (isNullOrUndefined(valueRaw) || !isString(valueRaw)) {
+      return;
+    }
+    const value = parseFloat(valueRaw);
+    const precision = (valueRaw.split('.')[1] || []).length;
+    if (isNaN(value) || !isFinite(value)) {
+      return;
+    }
+    var increment = Math.pow(10, -precision);
+    if(event.target.name === 'minus') {
+      increment = -increment;
+    } else if (event.target.name !== 'plus') {
+      return;
+    }
+    this.setState({
+      [name]: (value + increment).toFixed(precision),
+    });
+  }
+
   render() {
     const {formatMessage} = this.props.intl;
     const energy = this.getDisabledState() ? NaN : 0.5 
@@ -155,6 +180,7 @@ class ComputeFromMassVelocityForm extends Component {
           name="mass"
           placeholder={formatMessage(messages.massPlaceholder)}
           onChange={this.handleChange}
+          onClick={this.handleClick}
           unit={this.state.massUnit}
           units={[
             ["g", formatMessage(messages.massUnitSelect)],
@@ -171,6 +197,7 @@ class ComputeFromMassVelocityForm extends Component {
           name="velocity"
           placeholder={formatMessage(messages.velocityPlaceholder)}
           onChange={this.handleChange}
+          onClick={this.handleClick}
           unit={this.state.velocityUnit}
           units={[
             ["fps", formatMessage(messages.velocityUnitSelect)],

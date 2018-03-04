@@ -48,7 +48,8 @@ class InputValueUnit extends Component {
           <InputGroup>
             <FormControl type="text" name={this.props.name + 'Value'} placeholder={this.props.placeholder}
               value={this.props.value}
-              onChange={this.props.onChange} />
+              onChange={this.props.onChange}
+              ref={(input) => {this.valueInput = input;}} />
             <InputGroup.Addon>{this.props.unit}</InputGroup.Addon>
           </InputGroup>
         </Col>
@@ -60,8 +61,20 @@ class InputValueUnit extends Component {
         </Col>
         <Col sm={2}>
           <ButtonGroup>
-            <Button disabled={this.getDisabledState()}><Glyphicon glyph="minus" /></Button>
-            <Button disabled={this.getDisabledState()}><Glyphicon glyph="plus" /></Button>
+            <Button
+              disabled={this.getDisabledState()}
+              name="minus"
+              onClick={this.props.onClick}
+              value={this.props.name + 'Value'}>
+              <Glyphicon glyph="minus" />
+            </Button>
+            <Button 
+              disabled={this.getDisabledState()}
+              name="plus"
+              onClick={this.props.onClick}
+              value={this.props.name + 'Value'}>
+              <Glyphicon glyph="plus" />
+            </Button>
           </ButtonGroup>
         </Col>
       </FormGroup>
