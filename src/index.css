@@ -15,3 +15,7 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.progress {
+  margin-bottom: 5px;
+}

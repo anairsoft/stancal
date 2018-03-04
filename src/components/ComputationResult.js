@@ -76,7 +76,7 @@ class ComputationResult extends Component {
         <RowValueUnit label={formatMessage(messages.velocityLabel)}
           value={this.props.velocityValue} unit={this.props.velocityUnit} />
         <RowValueUnit label={formatMessage(messages.energyLabel)}
-          value={this.props.energyValue} unit={this.props.energyUnit} />
+          value={this.props.energyValue.toFixed(3)} unit={this.props.energyUnit} />
         <RowStandard value={this.props.energyValue} max={0.87075} label={formatMessage(messages.standardEn166FLabel)} />
         <RowStandard value={this.props.energyValue} max={6.192} label={formatMessage(messages.standardEn166BLabel)} />
         <RowStandard value={this.props.energyValue} max={15.523} label={formatMessage(messages.standardEn166ALabel)} />
