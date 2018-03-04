@@ -42,10 +42,10 @@ class InputValueUnit extends Component {
     return (
       <FormGroup
         validationState={this.getValidationState()}>
-        <Col componentClass={ControlLabel} sm={2}>
+        <Col componentClass={ControlLabel} sm={2} xs={12}>
           {this.props.label}
         </Col>
-        <Col sm={3}>
+        <Col sm={3} xs={5}>
           <InputGroup>
             <FormControl type="number" name={this.props.name + 'Value'} placeholder={this.props.placeholder}
               value={this.props.value}
@@ -54,13 +54,13 @@ class InputValueUnit extends Component {
             <InputGroup.Addon>{this.props.unit}</InputGroup.Addon>
           </InputGroup>
         </Col>
-        <Col sm={3}>
+        <Col sm={3} xs={7}>
           <FormControl componentClass="select" name={this.props.name + 'Unit'}
             onChange={this.props.onChange}>
             {options}
           </FormControl>
         </Col>
-        <Col sm={2}>
+        <Col sm={4} xsHidden>
           <ButtonGroup>
             <Button
               disabled={this.getDisabledState()}

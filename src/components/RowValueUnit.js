@@ -21,9 +21,9 @@ class RowValueUnit extends Component {
   render() {
     return (
       <Row>
-        <Col sm={2}></Col>
-        <Col sm={3}>{this.props.label}</Col>
-        <Col sm={3}><Label>{this.props.value} {this.props.unit}</Label></Col>
+        <Col sm={2} xsHidden></Col>
+        <Col sm={3} xs={6}>{this.props.label}</Col>
+        <Col sm={3} xs={6}><Label>{this.props.value} {this.props.unit}</Label></Col>
       </Row>
     );
   }
