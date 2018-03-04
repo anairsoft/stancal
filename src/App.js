@@ -35,7 +35,7 @@ const messages = defineMessages({
     id: 'compute.massvelocity.tab',
     defaultMessage: 'Mass and velocity',
   },
-  energyTag: {
+  energyTab: {
     id: 'compute.energy.tab',
     defaultMessage: 'Energy',
   },
@@ -83,11 +83,11 @@ class App extends Component {
               </Panel.Title>
             </Panel.Heading>
             <Panel.Body>
-              <Tabs defaultActiveKey={1}>
+              <Tabs defaultActiveKey={1} id="computefrom">
                 <Tab eventKey={1} title={formatMessage(messages.massvelocityTab)}>
                   <ComputeFromMassVelocityForm />
                 </Tab>
-                <Tab eventKey={2} title={formatMessage(messages.energyTag)}>
+                <Tab eventKey={2} title={formatMessage(messages.energyTab)}>
                 </Tab>
               </Tabs>
             </Panel.Body>

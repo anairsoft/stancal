@@ -21,21 +21,22 @@ import {
   Glyphicon,
   InputGroup,
 } from 'react-bootstrap';
+import { isNull } from 'util';
 
 class InputValueUnit extends Component {
   getValidationState() {
     const number = parseFloat(this.props.value);
-    return (isFinite(number) && number > 0) ? '' : 'error';
+    return (isFinite(number) && number > 0) ? null : 'error';
   }
 
   getDisabledState() {
-    return this.getValidationState() !== '';
+    return !isNull(this.getValidationState());
   }
 
   render() {
-    const options = this.props.units.map((unit) => {
+    const options = this.props.units.map((unit, pos) => {
       return (
-        <option value={unit[0]}>{unit[1]}</option>
+        <option key={pos} value={unit[0]}>{unit[1]}</option>
       );
     });
     return (
