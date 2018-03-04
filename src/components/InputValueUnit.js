@@ -47,7 +47,7 @@ class InputValueUnit extends Component {
         </Col>
         <Col sm={3}>
           <InputGroup>
-            <FormControl type="text" name={this.props.name + 'Value'} placeholder={this.props.placeholder}
+            <FormControl type="number" name={this.props.name + 'Value'} placeholder={this.props.placeholder}
               value={this.props.value}
               onChange={this.props.onChange}
               ref={(input) => {this.valueInput = input;}} />
