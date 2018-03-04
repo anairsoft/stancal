@@ -17,9 +17,8 @@ import {
   FormGroup,
 } from 'react-bootstrap';
 import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
+import ComputationResult from './ComputationResult';
 import InputValueUnit from './InputValueUnit';
-import RowStandard from './RowStandard';
-import RowValueUnit from './RowValueUnit';
 
 const messages = defineMessages({
   massLabel: {
@@ -57,18 +56,6 @@ const messages = defineMessages({
   massUnitLb: {
     id: 'compute.massvelocity.mass.unit.lb',
     defaultMessage: 'pounds (lb)',
-  },
-  resultEnergyLabel: {
-    id: 'compute.result.energy.label',
-    defaultMessage: 'Energy of projectile:',
-  },
-  resultMassLabel: {
-    id: 'compute.result.mass.label',
-    defaultMessage: 'Mass of projectile:',
-  },
-  resultVelocityLabel: {
-    id: 'compute.result.velocity.label',
-    defaultMessage: 'Velocity of projectile:',
   },
   velocityLabel: {
     id: 'compute.massvelocity.velocity.label',
@@ -193,19 +180,10 @@ class ComputeFromMassVelocityForm extends Component {
             ["mph", formatMessage(messages.velocityUnitMph)],
           ]}
           value={this.state.velocityValue} />
-        <RowValueUnit label={formatMessage(messages.resultMassLabel)} 
-          value={this.state.massValue} unit={this.state.massUnit} />
-        <RowValueUnit label={formatMessage(messages.resultVelocityLabel)}
-          value={this.state.velocityValue} unit={this.state.velocityUnit} />
-        <RowValueUnit label={formatMessage(messages.resultEnergyLabel)} value={energy} unit="J" />
-        <RowStandard value={energy} max={0.87075} label="EN 166 F (Spectacles)" />
-        <RowStandard value={energy} max={6.192} label="EN 166 B (Goggles)" />
-        <RowStandard value={energy} max={15.523} label="EN 166 A (Faceshields)" />
-        <RowStandard value={energy} max={7.51} label="STANAG 4296" />
-        <RowStandard value={energy} max={1.107868752} label="ANSI Z87.1+ (Spectacles)" />
-        <RowStandard value={energy} max={3.0774132} label="ANSI Z87.1+ (Goggles)" />
-        <RowStandard value={energy} max={7.150814378435543} label="MIL-PRF-31013" />
-        <RowStandard value={energy} max={15.02369943189588} label="MIL-DTL-43511D" />
+        <ComputationResult
+          massValue={this.state.massValue} massUnit={this.state.massUnit}
+          velocityValue={this.state.velocityValue} velocityUnit={this.state.velocityUnit}
+          energyValue={energy} energyUnit="J" />
       </Form>
     );
   }
