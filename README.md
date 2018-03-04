@@ -41,6 +41,13 @@ __________________________________________________
 
 *ANA StanCal* is published under the terms of [GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.html), see the [LICENSE](LICENSE) file.
 
+*ANA StanCal* uses following technologies, among others :
+[React](https://reactjs.org/),
+[facebook/create-react-app](https://github.com/facebook/create-react-app),
+[yahoo/react-intl](https://github.com/yahoo/react-intl),
+[React-Bootstrap](https://react-bootstrap.github.io/),
+[Glyphicons](http://glyphicons.com/).
+
 ## Support
 
 You can support this project by helping the [Association de Normalisation de l'Airsoft](https://ana.asso.fr) or contributing directly to the source code of this project or translating it into another language.
