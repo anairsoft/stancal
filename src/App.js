@@ -58,7 +58,7 @@ class App extends Component {
           <Grid>
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="https://github.com/anairsoft/stancal">
+                <a href="https://github.com/anairsoft/stancal" target="_blank" rel="noopener noreferrer">
                   <FormattedMessage
                     id="app.title.short"
                     defaultMessage="ANA StanCal" />
@@ -68,12 +68,12 @@ class App extends Component {
             </Navbar.Header>
             <Navbar.Collapse>
               <Nav>
-                <NavItem eventKey={1} href={formatMessage(messages.viewAppDocsLink)}>
+                <NavItem eventKey={1} href={formatMessage(messages.viewAppDocsLink)} target="_blank">
                   <FormattedMessage
                     id="app.docs.view.label"
                     defaultMessage="View ANA StanCal Docs" />
                 </NavItem>
-                <NavItem eventKey={1} href={formatMessage(messages.viewAnaDocsLink)}>
+                <NavItem eventKey={1} href={formatMessage(messages.viewAnaDocsLink)} target="_blank">
                   <FormattedMessage
                     id="ana.protectiveeyewear.docs.view.label"
                     defaultMessage="View ANA Protective Eyewear and Standards Docs" />
@@ -111,7 +111,7 @@ class App extends Component {
                 which protective eyewear to use during airsoft games." />
             </Row>
             <Row>
-              <a href={formatMessage(messages.issuesLink)}>
+              <a href={formatMessage(messages.issuesLink)} target="_blank" rel="noopener noreferrer">
                 <Glyphicon glyph="exclamation-sign" /> &nbsp; 
                 <FormattedMessage
                   id="app.issues.text"
