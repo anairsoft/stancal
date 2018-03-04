@@ -1,7 +1,7 @@
 # StanCal :: [ANA](https://ana.asso.fr) Standards Calculator
 
 > A progressive web application to determine which protective eyewear to use during airsoft games.
-> It supports following standards: ANSI Z87.1, EN 166, STANAG 2920, STANAG 4296.
+> It supports following standards: ANSI Z87.1, EN 166, MIL-DTL-43511D, MIL-PRF-31013, STANAG 2920, STANAG 4296.
 > It is translated into following languages: English, French.
 
 ![ANA](https://ana.asso.fr/app/uploads/ana/Logo-ANA.png)
