@@ -27,17 +27,21 @@ import ComputeFromMassVelocityForm from './components/ComputeFromMassVelocityFor
 import './App.css';
 
 const messages = defineMessages({
-  viewDocsLink: {
-    id: 'app.docs.view.link',
-    defaultMessage: 'https://github.com/anairsoft/stancal/wiki',
+  energyTab: {
+    id: 'compute.energy.tab',
+    defaultMessage: 'Energy',
+  },
+  issuesLink: {
+    id: 'app.issues.link',
+    defaultMessage: 'https://github.com/anairsoft/stancal/issues',
   },
   massvelocityTab: {
     id: 'compute.massvelocity.tab',
     defaultMessage: 'Mass and velocity',
   },
-  energyTab: {
-    id: 'compute.energy.tab',
-    defaultMessage: 'Energy',
+  viewDocsLink: {
+    id: 'app.docs.view.link',
+    defaultMessage: 'https://github.com/anairsoft/stancal/wiki',
   },
 });
 
@@ -92,21 +96,37 @@ class App extends Component {
               </Tabs>
             </Panel.Body>
           </Panel>
-          <Row>
-            <Glyphicon glyph="info-sign" /> &nbsp; 
-            <FormattedMessage
-              id="app.info.text"
-              defaultMessage="ANA StanCal is an open source software aiming to helping people to determine
-              which protective eyewear to use during airsoft games. It is developed by the Association de
-              Normalisation de l'Airsoft." />
-          </Row>
-          <Row>
-            <Glyphicon glyph="copyright-mark" /> &nbsp; 
-            <FormattedMessage
-              id="app.copyright.text"
-              defaultMessage="Copyright 2018 Association de Normalisation de l'Airsoft.
-              Distributed under the terms of the GNU GPL v3 license." />
-          </Row>
+          <div class="footer">
+            <Row>
+              <Glyphicon glyph="info-sign" /> &nbsp; 
+              <FormattedMessage
+                id="app.info.text"
+                defaultMessage="ANA StanCal is an open source software aiming to helping people to determine
+                which protective eyewear to use during airsoft games." />
+            </Row>
+            <Row>
+              <a href={formatMessage(messages.issuesLink)}>
+                <Glyphicon glyph="exclamation-sign" /> &nbsp; 
+                <FormattedMessage
+                  id="app.issues.text"
+                  defaultMessage="Report a bug or an issue, ask for a new feature." />
+              </a>
+            </Row>
+            <Row>
+              <Glyphicon glyph="alert" /> &nbsp; 
+              <FormattedMessage
+                id="app.legal.text"
+                defaultMessage="This information is given for illustrative purposes and doesn't override the standards considered.
+                Developers of ANA StanCal and the Association de Normalisation de l'Airsoft can't be held for responsible of any error or damage resulting of the use of this tool." />
+            </Row>
+            <Row>
+              <Glyphicon glyph="copyright-mark" /> &nbsp; 
+              <FormattedMessage
+                id="app.copyright.text"
+                defaultMessage="Copyright 2018 Association de Normalisation de l'Airsoft.
+                Distributed under the terms of the GNU GPL v3 license." />
+            </Row>
+          </div>
         </Grid>
       </div>
     );
