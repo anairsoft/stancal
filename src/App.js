@@ -87,7 +87,7 @@ class App extends Component {
                 <Tab eventKey={1} title={formatMessage(messages.massvelocityTab)}>
                   <ComputeFromMassVelocityForm />
                 </Tab>
-                <Tab eventKey={2} title={formatMessage(messages.energyTab)}>
+                <Tab eventKey={2} title={formatMessage(messages.energyTab)} disabled>
                 </Tab>
               </Tabs>
             </Panel.Body>
