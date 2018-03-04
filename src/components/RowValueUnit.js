@@ -13,6 +13,7 @@
 import React, { Component } from 'react';
 import {
   Col,
+  Label,
   Row,
 } from 'react-bootstrap';
 
@@ -22,7 +23,7 @@ class RowValueUnit extends Component {
       <Row>
         <Col sm={2}></Col>
         <Col sm={3}>{this.props.label}</Col>
-        <Col sm={3}>{this.props.value} {this.props.unit}</Col>
+        <Col sm={3}><Label>{this.props.value} {this.props.unit}</Label></Col>
       </Row>
     );
   }
