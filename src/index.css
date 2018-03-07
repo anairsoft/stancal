@@ -18,6 +18,16 @@ body {
 
 .footer {
   font-size: 0.8em;
+  margin: 1em;
+  text-align: justify;
+}
+
+.footer .glyphicon {
+  padding-right: 0.5em;
+}
+
+.navbar-brand {
+  padding: 12px 12px;
 }
 
 .progress {

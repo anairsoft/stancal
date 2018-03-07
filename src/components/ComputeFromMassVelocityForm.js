@@ -32,7 +32,7 @@ const messages = defineMessages({
   },
   massUnitSelect: {
     id: 'compute.massvelocity.mass.unit.select',
-    defaultMessage: 'Select unit ...',
+    defaultMessage: 'Unit ...',
   },
   massUnitMg: {
     id: 'compute.massvelocity.mass.unit.mg',
@@ -68,7 +68,7 @@ const messages = defineMessages({
   },
   velocityUnitSelect: {
     id: 'compute.massvelocity.velocity.unit.select',
-    defaultMessage: 'Select unit ...',
+    defaultMessage: 'Unit ...',
   },
   velocityUnitMs: {
     id: 'compute.massvelocity.velocity.unit.m/s',

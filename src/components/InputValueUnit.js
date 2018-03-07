@@ -45,7 +45,7 @@ class InputValueUnit extends Component {
         <Col componentClass={ControlLabel} sm={2} xs={12}>
           {this.props.label}
         </Col>
-        <Col sm={3} xs={5}>
+        <Col sm={3} xs={6}>
           <InputGroup>
             <FormControl type="number" name={this.props.name + 'Value'} placeholder={this.props.placeholder}
               value={this.props.value}
@@ -54,7 +54,7 @@ class InputValueUnit extends Component {
             <InputGroup.Addon>{this.props.unit}</InputGroup.Addon>
           </InputGroup>
         </Col>
-        <Col sm={3} xs={7}>
+        <Col sm={3} xs={6}>
           <FormControl componentClass="select" name={this.props.name + 'Unit'}
             onChange={this.props.onChange}>
             {options}

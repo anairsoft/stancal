@@ -14,9 +14,7 @@ import React, { Component } from 'react';
 import {
   Glyphicon,
   Grid,
-  Nav,
   Navbar,
-  NavItem,
   Panel,
   Row,
   Tab, 
@@ -36,7 +34,7 @@ const messages = defineMessages({
   },
   massvelocityTab: {
     id: 'compute.massvelocity.tab',
-    defaultMessage: 'Mass and velocity',
+    defaultMessage: 'Ballistics',
   },
   viewAppDocsLink: {
     id: 'app.docs.view.link',
@@ -57,28 +55,11 @@ class App extends Component {
           <Grid>
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="https://github.com/anairsoft/stancal" target="_blank" rel="noopener noreferrer">
-                  <FormattedMessage
-                    id="app.title.short"
-                    defaultMessage="ANA StanCal" />
+                <a href="/">
+                  <img src="logo_w.png" alt="ANA" />
                 </a>
               </Navbar.Brand>
-              <Navbar.Toggle />
             </Navbar.Header>
-            <Navbar.Collapse>
-              <Nav>
-                <NavItem eventKey={1} href={formatMessage(messages.viewAppDocsLink)} target="_blank">
-                  <FormattedMessage
-                    id="app.docs.view.label"
-                    defaultMessage="View ANA StanCal Docs" />
-                </NavItem>
-                <NavItem eventKey={1} href={formatMessage(messages.viewAnaDocsLink)} target="_blank">
-                  <FormattedMessage
-                    id="ana.protectiveeyewear.docs.view.label"
-                    defaultMessage="View ANA Protective Eyewear and Standards Docs" />
-                </NavItem>
-              </Nav>
-            </Navbar.Collapse>
           </Grid>
         </Navbar>
         <Grid>
@@ -87,8 +68,8 @@ class App extends Component {
             <Panel.Heading>
               <Panel.Title>
                 <FormattedMessage
-                  id="app.compute.from"
-                  defaultMessage="Compute from ..." />
+                  id="app.title.long"
+                  defaultMessage="ANA StanCal — Standards Calculator" />
               </Panel.Title>
             </Panel.Heading>
             <Panel.Body>
@@ -101,31 +82,49 @@ class App extends Component {
               </Tabs>
             </Panel.Body>
           </Panel>
-          <div class="footer">
+          <div className="footer">
             <Row>
-              <Glyphicon glyph="info-sign" /> &nbsp; 
-              <FormattedMessage
-                id="app.info.text"
-                defaultMessage="ANA StanCal is an open source software aiming to helping people to determine
-                which protective eyewear to use during airsoft games." />
+              <a href="https://github.com/anairsoft/stancal" target="_blank" rel="noopener noreferrer">
+                <Glyphicon glyph="info-sign" />
+                <FormattedMessage
+                  id="app.info.text"
+                  defaultMessage="ANA StanCal is an open source software aiming to helping people to determine
+                  which protective eyewear to use during airsoft games." />
+                </a>
+            </Row>
+            <Row>
+              <a href={formatMessage(messages.viewAppDocsLink)} target="_blank" rel="noopener noreferrer">
+                <Glyphicon glyph="info-sign" />
+                <FormattedMessage
+                      id="app.docs.view.label"
+                      defaultMessage="View ANA StanCal documentation." />
+              </a>
+            </Row>
+            <Row>
+              <a href={formatMessage(messages.viewAnaDocsLink)} target="_blank" rel="noopener noreferrer">
+                <Glyphicon glyph="info-sign" />
+                <FormattedMessage
+                    id="ana.protectiveeyewear.docs.view.label"
+                    defaultMessage="View ANA protective eyewear and standards documentation." />
+              </a>
             </Row>
             <Row>
               <a href={formatMessage(messages.issuesLink)} target="_blank" rel="noopener noreferrer">
-                <Glyphicon glyph="exclamation-sign" /> &nbsp; 
+                <Glyphicon glyph="exclamation-sign" />
                 <FormattedMessage
                   id="app.issues.text"
                   defaultMessage="Report a bug or an issue, ask for a new feature." />
               </a>
             </Row>
             <Row>
-              <Glyphicon glyph="alert" /> &nbsp; 
+              <Glyphicon glyph="alert" />
               <FormattedMessage
                 id="app.legal.text"
                 defaultMessage="This information is given for illustrative purposes and doesn't override the standards considered.
                 Developers of ANA StanCal and the Association de Normalisation de l'Airsoft can't be held for responsible of any error or damage resulting of the use of this tool." />
             </Row>
             <Row>
-              <Glyphicon glyph="copyright-mark" /> &nbsp; 
+              <Glyphicon glyph="copyright-mark" />
               <FormattedMessage
                 id="app.copyright.text"
                 defaultMessage="Copyright 2018 Association de Normalisation de l'Airsoft.
