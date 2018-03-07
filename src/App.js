@@ -24,7 +24,6 @@ import {
 } from 'react-bootstrap';
 import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
 import ComputeFromMassVelocityForm from './components/ComputeFromMassVelocityForm'
-import './App.css';
 
 const messages = defineMessages({
   energyTab: {
