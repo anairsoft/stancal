@@ -30,6 +30,11 @@ body {
   padding: 12px 12px;
 }
 
+.navbar-brand > img {
+  height: 30px;
+  image-rendering: crisp-edges;
+}
+
 .progress {
   margin-bottom: 5px;
 }
