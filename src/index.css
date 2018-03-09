@@ -16,8 +16,26 @@ body {
   font-family: sans-serif;
 }
 
+.container > .footer {
+  margin: 1em;
+}
+
 .footer {
   font-size: 0.8em;
+  text-align: justify;
+}
+
+.footer .glyphicon {
+  padding-right: 0.5em;
+}
+
+.navbar-brand {
+  padding: 12px 12px;
+}
+
+.navbar-brand > img {
+  height: 30px;
+  image-rendering: crisp-edges;
 }
 
 .progress {

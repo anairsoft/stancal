@@ -32,10 +32,10 @@ class RowStandard extends Component {
     }
     return (
       <Row>
-        <Col sm={2}></Col>
-        <Col sm={3}><ProgressBar bsStyle={style} now={progress} /></Col>
-        <Col sm={3}><Label bsStyle={style}><Glyphicon glyph={glyph} /> &nbsp; {this.props.label}</Label></Col>
-        <Col sm={2}>
+        <Col sm={2} xsHidden></Col>
+        <Col sm={3} xs={4}><ProgressBar bsStyle={style} now={progress} /></Col>
+        <Col sm={3} xs={8}><Label bsStyle={style}><Glyphicon glyph={glyph} /> &nbsp; {this.props.label}</Label></Col>
+        <Col sm={2} xsHidden>
           <Glyphicon glyph="question-sign" /> &nbsp; 
           <Glyphicon glyph="new-window" />
         </Col>

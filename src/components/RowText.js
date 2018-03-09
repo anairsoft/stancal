@@ -13,22 +13,21 @@
 import React, { Component } from 'react';
 import {
   Col,
-  Label,
+  Glyphicon,
   Row,
 } from 'react-bootstrap';
 import { isNullOrUndefined } from 'util';
 
-class RowValueUnit extends Component {
+class RowText extends Component {
   render() {
-    const comment = isNullOrUndefined(this.props.comment) ? null : ' (' + this.props.comment + ')';
+    const glyph = isNullOrUndefined(this.props.glyph) ? null : <Glyphicon glyph={this.props.glyph} />;
     return (
       <Row>
         <Col sm={2} xsHidden></Col>
-        <Col sm={3} xs={6}>{this.props.label}</Col>
-        <Col sm={3} xs={6}><Label>{this.props.value} {this.props.unit}{comment}</Label></Col>
+        <Col sm={10} className="footer">{glyph}{this.props.text}</Col>
       </Row>
     );
   }
 }
 
-export default RowValueUnit;
+export default RowText;

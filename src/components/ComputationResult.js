@@ -13,16 +13,29 @@
 import React, { Component } from 'react';
 import { defineMessages, intlShape, injectIntl } from 'react-intl';
 import RowStandard from './RowStandard';
+import RowText from './RowText';
 import RowValueUnit from './RowValueUnit';
 
 const messages = defineMessages({
   energyLabel: {
     id: 'compute.result.energy.label',
-    defaultMessage: 'Energy of projectile:',
+    defaultMessage: 'Energy:',
   },
   massLabel: {
     id: 'compute.result.mass.label',
-    defaultMessage: 'Mass of projectile:',
+    defaultMessage: 'Mass:',
+  },
+  rangeMax0Label: {
+    id: 'compute.result.range.max.0.label',
+    defaultMessage: 'Maximum range:',
+  },
+  stanag2920v50msLabel: {
+    id: 'compute.result.stanag2920.label',
+    defaultMessage: 'STANAG 2920 V50:',
+  },
+  stanag2920Warning: {
+    id: 'compute.result.stanag2920.warning',
+    defaultMessage: 'STANAG 2920 V50 is computed considering a projectile mass of 1.102g.',
   },
   standardEn166FLabel: {
     id: 'standard.en166.f.label',
@@ -62,7 +75,7 @@ const messages = defineMessages({
   },
   velocityLabel: {
     id: 'compute.result.velocity.label',
-    defaultMessage: 'Velocity of projectile:',
+    defaultMessage: 'Velocity:',
   },
 });
 
@@ -72,11 +85,15 @@ class ComputationResult extends Component {
     return (
       <div>
         <RowValueUnit label={formatMessage(messages.massLabel)} 
-          value={this.props.massValue} unit={this.props.massUnit} />
+          value={this.props.massValue} unit={this.props.massUnit} comment={this.props.massComment} />
         <RowValueUnit label={formatMessage(messages.velocityLabel)}
-          value={this.props.velocityValue} unit={this.props.velocityUnit} />
+          value={this.props.velocityValue} unit={this.props.velocityUnit} comment={this.props.velocityComment} />
         <RowValueUnit label={formatMessage(messages.energyLabel)}
           value={this.props.energyValue.toFixed(3)} unit={this.props.energyUnit} />
+        <RowValueUnit label={formatMessage(messages.rangeMax0Label)}
+          value={this.props.rangeMax0Value.toFixed(1)} unit={this.props.rangeMax0Unit} />
+        <RowValueUnit label={formatMessage(messages.stanag2920v50msLabel)}
+          value={this.props.stanag2920v50msValue.toFixed(3)} unit={this.props.stanag2920v50msUnit} comment={this.props.stanag2920v50msComment} />
         <RowStandard value={this.props.energyValue} max={0.87075} label={formatMessage(messages.standardEn166FLabel)} />
         <RowStandard value={this.props.energyValue} max={6.192} label={formatMessage(messages.standardEn166BLabel)} />
         <RowStandard value={this.props.energyValue} max={15.523} label={formatMessage(messages.standardEn166ALabel)} />
@@ -86,6 +103,7 @@ class ComputationResult extends Component {
         <RowStandard value={this.props.energyValue} max={4.431475008} label={formatMessage(messages.standardAnsiZ871FaceshieldsLabel)} />
         <RowStandard value={this.props.energyValue} max={7.150814378435543} label={formatMessage(messages.standardMilPrf31013Label)} />
         <RowStandard value={this.props.energyValue} max={15.02369943189588} label={formatMessage(messages.standardMilDtl43511DLabel)} />
+        <RowText glyph="alert" text={formatMessage(messages.stanag2920Warning)} />
       </div>
     );
   }
