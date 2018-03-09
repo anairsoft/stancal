@@ -32,6 +32,7 @@
   "compute.result.mass.label": "Masse :",
   "compute.result.range.max.0.label": "Portée maximale :",
   "compute.result.stanag2920.label": "STANAG 2920 V50:",
+  "compute.result.stanag2920.warning": "La vitesse V50 du STANAG 2920 est calculée en considérant un projectile de masse 1.102g.",
   "compute.result.velocity.label": "Vitesse :",
   "standard.ansiz871.faceshields.label": "ANSI Z87.1+ (Boucliers faciaux)",
   "standard.ansiz871.goggles.label": "ANSI Z87.1+ (Masques)",
