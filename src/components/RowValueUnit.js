@@ -16,14 +16,16 @@ import {
   Label,
   Row,
 } from 'react-bootstrap';
+import { isNullOrUndefined } from 'util';
 
 class RowValueUnit extends Component {
   render() {
+    const comment = isNullOrUndefined(this.props.comment) ? null : ' (' + this.props.comment + ')';
     return (
       <Row>
         <Col sm={2} xsHidden></Col>
         <Col sm={3} xs={6}>{this.props.label}</Col>
-        <Col sm={3} xs={6}><Label>{this.props.value} {this.props.unit}</Label></Col>
+        <Col sm={3} xs={6}><Label>{this.props.value} {this.props.unit}{comment}</Label></Col>
       </Row>
     );
   }

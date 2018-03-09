@@ -18,11 +18,19 @@ import RowValueUnit from './RowValueUnit';
 const messages = defineMessages({
   energyLabel: {
     id: 'compute.result.energy.label',
-    defaultMessage: 'Energy of projectile:',
+    defaultMessage: 'Energy:',
   },
   massLabel: {
     id: 'compute.result.mass.label',
-    defaultMessage: 'Mass of projectile:',
+    defaultMessage: 'Mass:',
+  },
+  rangeMax0Label: {
+    id: 'compute.result.range.max.0.label',
+    defaultMessage: 'Maximum range:',
+  },
+  stanag2920v50msLabel: {
+    id: 'compute.result.stanag2920.label',
+    defaultMessage: 'STANAG 2920 V50:',
   },
   standardEn166FLabel: {
     id: 'standard.en166.f.label',
@@ -62,7 +70,7 @@ const messages = defineMessages({
   },
   velocityLabel: {
     id: 'compute.result.velocity.label',
-    defaultMessage: 'Velocity of projectile:',
+    defaultMessage: 'Velocity:',
   },
 });
 
@@ -72,11 +80,15 @@ class ComputationResult extends Component {
     return (
       <div>
         <RowValueUnit label={formatMessage(messages.massLabel)} 
-          value={this.props.massValue} unit={this.props.massUnit} />
+          value={this.props.massValue} unit={this.props.massUnit} comment={this.props.massComment} />
         <RowValueUnit label={formatMessage(messages.velocityLabel)}
-          value={this.props.velocityValue} unit={this.props.velocityUnit} />
+          value={this.props.velocityValue} unit={this.props.velocityUnit} comment={this.props.velocityComment} />
         <RowValueUnit label={formatMessage(messages.energyLabel)}
           value={this.props.energyValue.toFixed(3)} unit={this.props.energyUnit} />
+        <RowValueUnit label={formatMessage(messages.rangeMax0Label)}
+          value={this.props.rangeMax0Value.toFixed(1)} unit={this.props.rangeMax0Unit} />
+        <RowValueUnit label={formatMessage(messages.stanag2920v50msLabel)}
+          value={this.props.stanag2920v50msValue.toFixed(3)} unit={this.props.stanag2920v50msUnit} comment={this.props.stanag2920v50msComment} />
         <RowStandard value={this.props.energyValue} max={0.87075} label={formatMessage(messages.standardEn166FLabel)} />
         <RowStandard value={this.props.energyValue} max={6.192} label={formatMessage(messages.standardEn166BLabel)} />
         <RowStandard value={this.props.energyValue} max={15.523} label={formatMessage(messages.standardEn166ALabel)} />
