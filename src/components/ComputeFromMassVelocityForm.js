@@ -171,6 +171,9 @@ class ComputeFromMassVelocityForm extends Component {
   }
 
   computeRangeMax(m, h, a, v0, k) {
+    if(v0 < 1 || v0 > 272) {
+      return NaN;
+    }
     var max = NaN;
     for(var x = 0; x < 1000; x = x + 0.1) {
       var y = this.computeYx(x, m, 2, 0, v0, k);
