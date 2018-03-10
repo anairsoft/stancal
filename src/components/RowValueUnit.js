@@ -20,6 +20,9 @@ import { isNullOrUndefined } from 'util';
 
 class RowValueUnit extends Component {
   render() {
+    if(isNullOrUndefined(this.props.value) || isNaN(this.props.value) || this.props.value.length === 0) {
+      return <Row />
+    }
     const comment = isNullOrUndefined(this.props.comment) ? null : ' (' + this.props.comment + ')';
     return (
       <Row>
