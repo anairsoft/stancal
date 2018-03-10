@@ -31,6 +31,7 @@
   "compute.result.energy.label": "Energy:",
   "compute.result.mass.label": "Mass:",
   "compute.result.range.max.0.label": "Maximum range:",
+  "compute.result.range.max.0.warning": "Maximum range is computed for a 6mm spherical projectile fired horizontally from 2m height.",
   "compute.result.stanag2920.label": "STANAG 2920 V50:",
   "compute.result.stanag2920.warning": "STANAG 2920 V50 is computed considering a projectile mass of 1.102g.",
   "compute.result.velocity.label": "Velocity:",

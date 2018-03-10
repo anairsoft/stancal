@@ -31,6 +31,7 @@
   "compute.result.energy.label": "Energie :",
   "compute.result.mass.label": "Masse :",
   "compute.result.range.max.0.label": "Portée maximale :",
+  "compute.result.range.max.0.warning": "La portée maximale est calculée pour une bille de 6 mm tirée horizontalement à partir de 2m de hauteur.",
   "compute.result.stanag2920.label": "STANAG 2920 V50:",
   "compute.result.stanag2920.warning": "La vitesse V50 du STANAG 2920 est calculée en considérant un projectile de masse 1.102g.",
   "compute.result.velocity.label": "Vitesse :",

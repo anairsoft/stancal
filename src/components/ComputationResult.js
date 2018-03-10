@@ -29,6 +29,10 @@ const messages = defineMessages({
     id: 'compute.result.range.max.0.label',
     defaultMessage: 'Maximum range:',
   },
+  rangeMax0Warning: {
+    id: 'compute.result.range.max.0.warning',
+    defaultMessage: 'Maximum range is computed for a 6mm spherical projectile fired horizontally from 2m height.',
+  },
   stanag2920v50msLabel: {
     id: 'compute.result.stanag2920.label',
     defaultMessage: 'STANAG 2920 V50:',
@@ -103,6 +107,7 @@ class ComputationResult extends Component {
         <RowStandard value={this.props.energyValue} max={4.431475008} label={formatMessage(messages.standardAnsiZ871FaceshieldsLabel)} />
         <RowStandard value={this.props.energyValue} max={7.150814378435543} label={formatMessage(messages.standardMilPrf31013Label)} />
         <RowStandard value={this.props.energyValue} max={15.02369943189588} label={formatMessage(messages.standardMilDtl43511DLabel)} />
+        <RowText glyph="alert" text={formatMessage(messages.rangeMax0Warning)} />
         <RowText glyph="alert" text={formatMessage(messages.stanag2920Warning)} />
       </div>
     );
