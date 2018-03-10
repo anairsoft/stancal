@@ -18,7 +18,7 @@ import {
 } from 'react-bootstrap';
 import { isNullOrUndefined } from 'util';
 
-class RowText extends Component {
+class RowFooter extends Component {
   render() {
     const glyph = isNullOrUndefined(this.props.glyph) ? null : <Glyphicon glyph={this.props.glyph} />;
     return (
@@ -30,4 +30,4 @@ class RowText extends Component {
   }
 }
 
-export default RowText;
+export default RowFooter;

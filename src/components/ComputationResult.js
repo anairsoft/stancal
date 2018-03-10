@@ -13,7 +13,7 @@
 import React, { Component } from 'react';
 import { defineMessages, intlShape, injectIntl } from 'react-intl';
 import RowStandard from './RowStandard';
-import RowText from './RowText';
+import RowFooter from './RowFooter';
 import RowValueUnit from './RowValueUnit';
 
 const messages = defineMessages({
@@ -107,8 +107,8 @@ class ComputationResult extends Component {
         <RowStandard value={this.props.energyValue} max={4.431475008} label={formatMessage(messages.standardAnsiZ871FaceshieldsLabel)} />
         <RowStandard value={this.props.energyValue} max={7.150814378435543} label={formatMessage(messages.standardMilPrf31013Label)} />
         <RowStandard value={this.props.energyValue} max={15.02369943189588} label={formatMessage(messages.standardMilDtl43511DLabel)} />
-        <RowText glyph="alert" text={formatMessage(messages.rangeMax0Warning)} />
-        <RowText glyph="alert" text={formatMessage(messages.stanag2920Warning)} />
+        <RowFooter glyph="alert" text={formatMessage(messages.rangeMax0Warning)} />
+        <RowFooter glyph="alert" text={formatMessage(messages.stanag2920Warning)} />
       </div>
     );
   }
