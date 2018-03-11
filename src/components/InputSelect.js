@@ -17,6 +17,7 @@ import {
   FormControl, 
   FormGroup,
 } from 'react-bootstrap';
+import { isNullOrUndefined } from 'util';
 
 class InputValueUnit extends Component {
   render() {
@@ -33,7 +34,7 @@ class InputValueUnit extends Component {
         </Col>
         <Col sm={6} xs={12}>
           <FormControl componentClass="select" name={this.props.name}
-            disabled={this.props.options.length === 0}
+            disabled={this.props.options.length === 0 || this.props.options.filter(o => !isNullOrUndefined(o[0]) && o[0].length !== 0).length === 0}
             onChange={this.props.onChange}>
             {options}
           </FormControl>
