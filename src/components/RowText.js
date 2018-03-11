@@ -21,15 +21,22 @@ import { isNullOrUndefined } from 'util';
 
 class RowText extends Component {
   render() {
-    const glyph = isNullOrUndefined(this.props.glyph) ? null : <span><Glyphicon glyph={this.props.glyph} /> &nbsp; </span>;
+    if (isNullOrUndefined(this.props.text)) {
+      return <div />;
+    }
+    const glyph = isNullOrUndefined(this.props.glyph) 
+      ? null
+      : <span><Glyphicon glyph={this.props.glyph} /> &nbsp; </span>;
+    const link = isNullOrUndefined(this.props.link)
+      ? null
+      : <a href={this.props.link} target="_blank" rel="noopener noreferrer"><Glyphicon glyph="info-sign" /></a>
     return (
       <Row>
         <Col sm={2} xsHidden></Col>
-        <Col sm={3} xs={6}>{this.props.label}</Col>
-        <Col sm={3} xs={6}><Label bsStyle={this.props.style}>{glyph}{this.props.text}</Label></Col>
-        <Col sm={2} xsHidden>
-          <Glyphicon glyph="question-sign" /> &nbsp; 
-          <Glyphicon glyph="new-window" />
+        <Col sm={2} xs={6}>{this.props.label}</Col>
+        <Col sm={3} xs={5}><Label bsStyle={this.props.bsStyle}>{glyph}{this.props.text}</Label></Col>
+        <Col sm={1} xs={1} className="right">
+          {link}
         </Col>
       </Row>
     );

@@ -19,7 +19,7 @@ import {
 import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
 import CheckResult from './CheckResult';
 import InputSelect from './InputSelect';
-import data from '../data/protectiveEyewear.json';
+import Product from '../core/Product';
 
 const messages = defineMessages({
   brandLabel: {
@@ -40,17 +40,13 @@ const messages = defineMessages({
   },
 });
 
-function unique(value, index, self) {
-  return self.indexOf(value) === index;
-}
-
 class CheckProtectiveEyewearForm extends Component {
   constructor(props, context) {
     super(props, context);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
-      brand: "",
-      product: "",
+      brandName: '',
+      productName: '',
     };
   }
 
@@ -58,15 +54,20 @@ class CheckProtectiveEyewearForm extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
+    if(event.target.name === 'brandName') {
+      this.setState({
+        productName: '',
+      });
+    }
   }
 
   render() {
     const {formatMessage} = this.props.intl;
-    const brand = this.state.brand;
-    const brands = data.products.map(p => p.brand).filter(unique).sort();
-    const product = this.state.product;
-    const products = data.products.filter(p => p.brand === brand).map(p => p.name).filter(unique).sort();
-    const productSelected = data.products.find(p => p.brand === brand && p.name === product);
+    const brandName = this.state.brandName;
+    const brands = Product.getBrandNames();
+    const productName = this.state.productName;
+    const products = Product.getProductNames(brandName);
+    const product = Product.getProduct(productName, brandName);
     return (
       <Form horizontal>
         <FormGroup>
@@ -79,16 +80,16 @@ class CheckProtectiveEyewearForm extends Component {
         </FormGroup>
         <InputSelect
           label={formatMessage(messages.brandLabel)}
-          name="brand"
+          name="brandName"
           onChange={this.handleChange}
           options={brands.map(x => [x, x])} />
         <InputSelect
           label="Product"
-          name="product"
+          name="productName"
           onChange={this.handleChange}
           options={products.map(x => [x, x])} />
         <CheckResult
-          product={productSelected} />
+          product={product} />
       </Form>
     );
   }

@@ -20,6 +20,7 @@ import {
 
 class InputValueUnit extends Component {
   render() {
+    
     const options = this.props.options.map((option, pos) => {
       return (
         <option key={pos} value={option[0]}>{option[1]}</option>

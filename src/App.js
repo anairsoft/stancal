@@ -57,7 +57,7 @@ class App extends Component {
             <Navbar.Header>
               <Navbar.Brand>
                 <a href="/">
-                  <img src="brand.png" alt="ANA" />
+                  <img src="images/app/brand.png" alt="ANA" />
                 </a>
               </Navbar.Brand>
             </Navbar.Header>

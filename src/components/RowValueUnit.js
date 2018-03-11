@@ -24,11 +24,12 @@ class RowValueUnit extends Component {
       return <Row />
     }
     const comment = isNullOrUndefined(this.props.comment) ? null : ' (' + this.props.comment + ')';
+    const labelSm = isNullOrUndefined(this.props.labelSm) ? 3 : this.props.labelSm;
     return (
       <Row>
         <Col sm={2} xsHidden></Col>
-        <Col sm={3} xs={6}>{this.props.label}</Col>
-        <Col sm={3} xs={6}><Label>{this.props.value} {this.props.unit}{comment}</Label></Col>
+        <Col sm={labelSm} xs={6}>{this.props.label}</Col>
+        <Col sm={3} xs={6}><Label bsStyle={this.props.bsStyle}>{this.props.value} {this.props.unit}{comment}</Label></Col>
       </Row>
     );
   }

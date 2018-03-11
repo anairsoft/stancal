@@ -17,6 +17,8 @@ import RowFooter from './RowFooter';
 import RowImages from './RowImages';
 import RowStandards from './RowStandards';
 import RowText from './RowText';
+import RowValueUnit from './RowValueUnit';
+import Standard from '../core/Standard';
 
 const messages = defineMessages({
   brandLabel: {
@@ -25,7 +27,19 @@ const messages = defineMessages({
   },
   dataWarning: {
     id: 'check.protectiveeyewear.data.warning',
-    defaultMessage: 'The ANA verify these data accordingly to information providen by manufacturers. ANA is not responsible for any error and you are encouraged to report them to the ANA.',
+    defaultMessage: 'Product information is provided by {brand}. ANA is not responsible for any error.',
+  },
+  highestEnergyLabel: {
+    id: 'check.protectiveeyewear.highest.energy.label',
+    defaultMessage: 'Maximal energy:',
+  },
+  highestStandardLabel: {
+    id: 'check.protectiveeyewear.highest.standard.label',
+    defaultMessage: 'Highest standard:',
+  },
+  picturesWarning: {
+    id: 'check.protectiveeyewear.pictures.warning',
+    defaultMessage: 'Product pictures are copyrighted by {brand} and are used by ANA StanCal with their graceful courtesie.',
   },
   productLabel: {
     id: 'check.protectiveeyewear.product.label',
@@ -66,14 +80,20 @@ class CheckResult extends Component {
       case "faceshield": type = messages.typeFaceshield; break;
       default: type = messages.typeUnknown; break;
     }
+    const highestStandard = Standard.getHighestStandard(this.props.product.standards.map(s => s.name), this.props.product.type);
+    const highestStandardText = isNullOrUndefined(highestStandard) ? null : highestStandard.name;
+    const highestStandardEnergy = isNullOrUndefined(highestStandard) ? null : highestStandard.energy.toFixed(3);
     return (
       <div>
         <RowText label={formatMessage(messages.brandLabel)} text={this.props.product.brand} />
-        <RowText label={formatMessage(messages.productLabel)} text={this.props.product.name} />
+        <RowText label={formatMessage(messages.productLabel)} text={this.props.product.name} link={this.props.product.links[0].value} />
         <RowText label={formatMessage(messages.typeLabel)} text={formatMessage(type)} />
+        <RowText label={formatMessage(messages.highestStandardLabel)} text={highestStandardText} />
+        <RowValueUnit label={formatMessage(messages.highestEnergyLabel)} value={highestStandardEnergy} unit="J" labelSm={2} bsStyle="primary" />
         <RowStandards standards={this.props.product.standards} type={this.props.product.type} />
         <RowImages images={this.props.product.pictures} />
-        <RowFooter glyph="alert" text={formatMessage(messages.dataWarning)} />
+        <RowFooter glyph="alert" text={formatMessage(messages.dataWarning, {brand: this.props.product.brand})} />
+        <RowFooter glyph="copyright-mark" text={formatMessage(messages.picturesWarning, {brand: this.props.product.brand})} />
       </div>
     );
   }

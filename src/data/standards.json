@@ -1,0 +1,44 @@
+[
+    {
+        "name": "EN 166 F",
+        "energy": 0.87075
+    },
+    {
+        "name": "EN 166 B",
+        "energy": 6.192
+    },
+    {
+        "name": "EN 166 A",
+        "energy": 15.523
+    },
+    {
+        "name": "STANAG 2920"
+    },
+    {
+        "name": "STANAG 4296",
+        "energy": 7.51
+    },
+    {
+        "name": "ANSI Z87.1+",
+        "energy": 1.107868752,
+        "type": "spectacles"
+    },
+    {
+        "name": "ANSI Z87.1+",
+        "energy": 3.0774132,
+        "type": "goggles"
+    },
+    {
+        "name": "ANSI Z87.1+",
+        "energy": 4.431475008,
+        "type": "faceshields"
+    },
+    {
+        "name": "MIL-PRF-31013",
+        "energy": 7.150814378435543
+    },
+    {
+        "name": "MIL-DTL-43511D",
+        "energy": 15.02369943189588
+    }
+]

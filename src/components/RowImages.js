@@ -23,9 +23,9 @@ class RowImages extends Component {
     if(isNullOrUndefined(this.props.images) || this.props.images.length === 0) {
       return <div />;
     }
-    const images = this.props.images.map(image => {
+    const images = this.props.images.map((image, index) => {
       return (
-        <Col sm={2} xs={12}><Image src={image} rounded responsive /></Col>
+        <Col sm={2} xs={12} key={index}><Image src={image} rounded responsive /></Col>
       );
     });
     return (

@@ -18,10 +18,12 @@ import {
   ProgressBar,
   Row,
 } from 'react-bootstrap';
+import Standard from '../core/Standard';
 
 class RowStandard extends Component {
   render() {
-    const progress = 100 * this.props.value / this.props.max;
+    const max = Standard.getStandardEnergy(this.props.name, this.props.type);
+    const progress = 100 * this.props.value / max;
     var style = "danger", glyph = "remove";
     if (progress < 90) {
       style = "success";
