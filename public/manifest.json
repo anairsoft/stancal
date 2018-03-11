@@ -5,12 +5,12 @@
   "lang": "en",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "images/app/icon.png",
       "sizes": "96x96 72x72 64x64 48x48 32x32 24x24 16x16",
       "type": "image/png"
     },
     {
-      "src": "splashscreen.png",
+      "src": "images/app/splashscreen.png",
       "sizes": "1024x1024 512x512 128x128 102x102",
       "type": "image/png"
     }
