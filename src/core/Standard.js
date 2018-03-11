@@ -18,18 +18,27 @@ function unique(value, index, self) {
 }
 
 class Standard {
-  static getStandard(name, type = null) {
-    const standard = isNullOrUndefined(type) || type.length === 0
+  static getStandard(name, type = null, props = null) {
+    var standard = isNullOrUndefined(type) || type.length === 0
       ? standards.find(s => s.name === name)
       : standards.find(s => s.name === name && s.type === type);
-    if (isNullOrUndefined(standard) && !isNullOrUndefined(type)) {
-      return Standard.getStandard(name);
+    if (isNullOrUndefined(standard)) {
+      if (!isNullOrUndefined(type)) {
+        return Standard.getStandard(name, null, props);
+      }
+      return null;
+    }
+    standard = JSON.parse(JSON.stringify(standard));
+    if (!isNullOrUndefined(standard) && !isNullOrUndefined(props)) {
+      if (isNullOrUndefined(standard.energy) && !isNullOrUndefined(props.mass) && !isNullOrUndefined(props.velocity)) {
+        standard.energy = 0.5 * props.mass * Math.pow(props.velocity, 2);
+      }
     }
     return standard;
   }
 
-  static getStandardEnergy(name, type = null) {
-    const standard = Standard.getStandard(name, type);
+  static getStandardEnergy(name, type = null, props = null) {
+    const standard = Standard.getStandard(name, type, props);
     if (isNullOrUndefined(standard)) {
       return null;
     }
@@ -40,18 +49,18 @@ class Standard {
     return standards.map(s => s.name).filter(unique).sort();
   }
 
-  static getHighestStandard(names, type = null) {
-    if (!isArray(names) || names.length === 0) {
+  static getHighestStandard(standards, type = null) {
+    if (!isArray(standards) || standards.length === 0) {
       return null;
     }
-    const highest = names.map(n => Standard.getStandard(n, type))
+    const highest = standards.map(n => Standard.getStandard(n.name, type, n))
       .filter(s => !isNullOrUndefined(s))
       .sort((a, b) => {
         if (isNullOrUndefined(a.energy)) {
           return -1;
         }
         if (isNullOrUndefined(b.energy)) {
-          return 1;
+          return -1;
         }
         return a.energy - b.energy;
       });

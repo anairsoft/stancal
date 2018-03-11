@@ -80,9 +80,9 @@ class CheckResult extends Component {
       case "faceshield": type = messages.typeFaceshield; break;
       default: type = messages.typeUnknown; break;
     }
-    const highestStandard = Standard.getHighestStandard(this.props.product.standards.map(s => s.name), this.props.product.type);
+    const highestStandard = Standard.getHighestStandard(this.props.product.standards, this.props.product.type);
     const highestStandardText = isNullOrUndefined(highestStandard) ? null : highestStandard.name;
-    const highestStandardEnergy = isNullOrUndefined(highestStandard) ? null : highestStandard.energy.toFixed(3);
+    const highestStandardEnergy = isNullOrUndefined(highestStandard) || isNullOrUndefined(highestStandard.energy) ? NaN : highestStandard.energy.toFixed(3);
     return (
       <div>
         <RowText label={formatMessage(messages.brandLabel)} text={this.props.product.brand} />
