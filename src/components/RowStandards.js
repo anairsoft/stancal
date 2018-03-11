@@ -14,20 +14,24 @@ import React, { Component } from 'react';
 import {
   Col,
   Glyphicon,
+  Label,
   Row,
 } from 'react-bootstrap';
-import { isNullOrUndefined } from 'util';
 
-class RowFooter extends Component {
+class RowStandards extends Component {
   render() {
-    const glyph = isNullOrUndefined(this.props.glyph) ? null : <Glyphicon glyph={this.props.glyph} />;
+    const standards = this.props.standards.map(standard => {
+      return (
+        <span><Label bsStyle="success"><Glyphicon glyph="ok" /> &nbsp; {standard.name}</Label> &nbsp; </span>
+      );
+    });
     return (
       <Row>
         <Col sm={2} xsHidden></Col>
-        <Col sm={7} className="footer">{glyph}{this.props.text}</Col>
+        <Col sm={6} xs={12}>{standards}</Col>
       </Row>
     );
   }
 }
 
-export default RowFooter;
+export default RowStandards;

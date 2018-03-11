@@ -14,20 +14,26 @@ import React, { Component } from 'react';
 import {
   Col,
   Glyphicon,
+  Label,
   Row,
 } from 'react-bootstrap';
 import { isNullOrUndefined } from 'util';
 
-class RowFooter extends Component {
+class RowText extends Component {
   render() {
-    const glyph = isNullOrUndefined(this.props.glyph) ? null : <Glyphicon glyph={this.props.glyph} />;
+    const glyph = isNullOrUndefined(this.props.glyph) ? null : <span><Glyphicon glyph={this.props.glyph} /> &nbsp; </span>;
     return (
       <Row>
         <Col sm={2} xsHidden></Col>
-        <Col sm={7} className="footer">{glyph}{this.props.text}</Col>
+        <Col sm={3} xs={6}>{this.props.label}</Col>
+        <Col sm={3} xs={6}><Label bsStyle={this.props.style}>{glyph}{this.props.text}</Label></Col>
+        <Col sm={2} xsHidden>
+          <Glyphicon glyph="question-sign" /> &nbsp; 
+          <Glyphicon glyph="new-window" />
+        </Col>
       </Row>
     );
   }
 }
 
-export default RowFooter;
+export default RowText;
