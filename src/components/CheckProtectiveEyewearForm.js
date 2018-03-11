@@ -87,7 +87,7 @@ class CheckProtectiveEyewearForm extends Component {
           options={brands}
           value={this.state.brandName} />
         <InputSelect
-          label="Product"
+          label={formatMessage(messages.productLabel)}
           name="productName"
           onChange={this.handleChange}
           options={products}
