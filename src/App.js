@@ -23,6 +23,7 @@ import {
 import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
 import CheckProtectiveEyewearForm from './components/CheckProtectiveEyewearForm'
 import ComputeFromMassVelocityForm from './components/ComputeFromMassVelocityForm'
+import Logo from './images/brand.png';
 
 const messages = defineMessages({
   energyTab: {
@@ -57,7 +58,7 @@ class App extends Component {
             <Navbar.Header>
               <Navbar.Brand>
                 <a href="/">
-                  <img src="images/app/brand.png" alt="ANA" />
+                  <img src={Logo} alt="ANA" />
                 </a>
               </Navbar.Brand>
             </Navbar.Header>
