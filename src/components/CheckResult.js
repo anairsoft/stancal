@@ -14,6 +14,7 @@ import React, { Component } from 'react';
 import { defineMessages, intlShape, injectIntl } from 'react-intl';
 import { isNullOrUndefined } from 'util';
 import RowFooter from './RowFooter';
+import RowImages from './RowImages';
 import RowStandards from './RowStandards';
 import RowText from './RowText';
 
@@ -71,6 +72,7 @@ class CheckResult extends Component {
         <RowText label={formatMessage(messages.productLabel)} text={this.props.product.name} />
         <RowText label={formatMessage(messages.typeLabel)} text={formatMessage(type)} />
         <RowStandards standards={this.props.product.standards} type={this.props.product.type} />
+        <RowImages images={this.props.product.pictures} />
         <RowFooter glyph="alert" text={formatMessage(messages.dataWarning)} />
       </div>
     );
