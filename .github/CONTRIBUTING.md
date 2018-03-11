@@ -28,10 +28,10 @@
 
 1. In the `src/data/products.json` file, please fill the following template for each product to add (do *not* include comments `// ...`):
 
-   ```json
+   ```js
    {
         "brand": "", // Brand of the product
-        "name": "", // Name of the product
+        "name": "",  // Name of the product
         "type": "",
         "standards": [
             { "name": "" }, // Standards matched by the product
@@ -40,12 +40,12 @@
         ],
         "links": [
             { "lang": "en", "value": "" }, // Link to product documentation, English
-            { "lang": "fr", "value": "" } // Link to product documentation, French
+            { "lang": "fr", "value": "" }  // Link to product documentation, French
         ],
         "pictures": [
             "", // Provide the links to at least 1 and up to 3 pictures of the product
-            "",
-            ""
+            "", // Second picture
+            ""  // Third picture
         ]
     },
     ```
