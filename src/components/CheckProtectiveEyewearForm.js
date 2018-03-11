@@ -65,10 +65,10 @@ class CheckProtectiveEyewearForm extends Component {
     const {formatMessage} = this.props.intl;
     const brandName = this.state.brandName;
     var brands = Product.getBrandNames().map(x => [x, x]);
-    brands.unshift([null, formatMessage(messages.brandSelect)]);
+    brands.unshift(['', formatMessage(messages.brandSelect)]);
     const productName = this.state.productName;
     var products = Product.getProductNames(brandName).map(x => [x, x]);
-    products.unshift([null, formatMessage(messages.productSelect)]);
+    products.unshift(['', formatMessage(messages.productSelect)]);
     const product = Product.getProduct(productName, brandName);
     return (
       <Form horizontal>
@@ -84,12 +84,14 @@ class CheckProtectiveEyewearForm extends Component {
           label={formatMessage(messages.brandLabel)}
           name="brandName"
           onChange={this.handleChange}
-          options={brands} />
+          options={brands}
+          value={this.state.brandName} />
         <InputSelect
           label="Product"
           name="productName"
           onChange={this.handleChange}
-          options={products} />
+          options={products}
+          value={this.state.productName} />
         <CheckResult
           product={product} />
       </Form>

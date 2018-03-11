@@ -19,9 +19,8 @@ import {
 } from 'react-bootstrap';
 import { isNullOrUndefined } from 'util';
 
-class InputValueUnit extends Component {
+class InputSelect extends Component {
   render() {
-    
     const options = this.props.options.map((option, pos) => {
       return (
         <option key={pos} value={option[0]}>{option[1]}</option>
@@ -35,7 +34,8 @@ class InputValueUnit extends Component {
         <Col sm={6} xs={12}>
           <FormControl componentClass="select" name={this.props.name}
             disabled={this.props.options.length === 0 || this.props.options.filter(o => !isNullOrUndefined(o[0]) && o[0].length !== 0).length === 0}
-            onChange={this.props.onChange}>
+            onChange={this.props.onChange}
+            value={this.props.value}>
             {options}
           </FormControl>
         </Col>
@@ -44,4 +44,4 @@ class InputValueUnit extends Component {
   }
 }
 
-export default InputValueUnit;
+export default InputSelect;
