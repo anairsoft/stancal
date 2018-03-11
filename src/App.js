@@ -21,6 +21,7 @@ import {
   Tabs
 } from 'react-bootstrap';
 import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
+import CheckProtectiveEyewearForm from './components/CheckProtectiveEyewearForm'
 import ComputeFromMassVelocityForm from './components/ComputeFromMassVelocityForm'
 
 const messages = defineMessages({
@@ -56,7 +57,7 @@ class App extends Component {
             <Navbar.Header>
               <Navbar.Brand>
                 <a href="/">
-                  <img src="brand.png" alt="ANA" />
+                  <img src="images/app/brand.png" alt="ANA" />
                 </a>
               </Navbar.Brand>
             </Navbar.Header>
@@ -77,7 +78,8 @@ class App extends Component {
                 <Tab eventKey={1} title={formatMessage(messages.massvelocityTab)}>
                   <ComputeFromMassVelocityForm />
                 </Tab>
-                <Tab eventKey={2} title={formatMessage(messages.energyTab)} disabled>
+                <Tab eventKey={2} title={formatMessage(messages.energyTab)}>
+                  <CheckProtectiveEyewearForm />
                 </Tab>
               </Tabs>
             </Panel.Body>

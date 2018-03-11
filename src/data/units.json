@@ -1,0 +1,12 @@
+[
+    { "type": "mass", "name": "mg", "ratio": 0.000001 },
+    { "type": "mass", "name": "g", "ratio": 0.001 },
+    { "type": "mass", "name": "kg", "ratio": 1 },
+    { "type": "mass", "name": "gr", "ratio": 0.0000647989 },
+    { "type": "mass", "name": "oz", "ratio": 0.0283495 },
+    { "type": "mass", "name": "lb", "ratio": 0.453592 },
+    { "type": "velocity", "name": "m/s", "ratio": 1 },
+    { "type": "velocity", "name": "km/h", "ratio": 0.277778 },
+    { "type": "velocity", "name": "fps", "ratio": 0.3048 },
+    { "type": "velocity", "name": "mph", "ratio": 0.44704 }
+]

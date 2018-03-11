@@ -13,7 +13,7 @@
 import React, { Component } from 'react';
 import { defineMessages, intlShape, injectIntl } from 'react-intl';
 import RowStandard from './RowStandard';
-import RowText from './RowText';
+import RowFooter from './RowFooter';
 import RowValueUnit from './RowValueUnit';
 
 const messages = defineMessages({
@@ -28,6 +28,10 @@ const messages = defineMessages({
   rangeMax0Label: {
     id: 'compute.result.range.max.0.label',
     defaultMessage: 'Maximum range:',
+  },
+  rangeMax0Warning: {
+    id: 'compute.result.range.max.0.warning',
+    defaultMessage: 'Maximum range is computed for a 6mm spherical projectile fired horizontally from 2m height.',
   },
   stanag2920v50msLabel: {
     id: 'compute.result.stanag2920.label',
@@ -89,21 +93,31 @@ class ComputationResult extends Component {
         <RowValueUnit label={formatMessage(messages.velocityLabel)}
           value={this.props.velocityValue} unit={this.props.velocityUnit} comment={this.props.velocityComment} />
         <RowValueUnit label={formatMessage(messages.energyLabel)}
-          value={this.props.energyValue.toFixed(3)} unit={this.props.energyUnit} />
+          value={this.props.energyValue.toFixed(3)} unit={this.props.energyUnit} bsStyle="primary" />
         <RowValueUnit label={formatMessage(messages.rangeMax0Label)}
           value={this.props.rangeMax0Value.toFixed(1)} unit={this.props.rangeMax0Unit} />
         <RowValueUnit label={formatMessage(messages.stanag2920v50msLabel)}
           value={this.props.stanag2920v50msValue.toFixed(3)} unit={this.props.stanag2920v50msUnit} comment={this.props.stanag2920v50msComment} />
-        <RowStandard value={this.props.energyValue} max={0.87075} label={formatMessage(messages.standardEn166FLabel)} />
-        <RowStandard value={this.props.energyValue} max={6.192} label={formatMessage(messages.standardEn166BLabel)} />
-        <RowStandard value={this.props.energyValue} max={15.523} label={formatMessage(messages.standardEn166ALabel)} />
-        <RowStandard value={this.props.energyValue} max={7.51} label={formatMessage(messages.standardStanag4296Label)} />
-        <RowStandard value={this.props.energyValue} max={1.107868752} label={formatMessage(messages.standardAnsiZ871SpectaclesLabel)} />
-        <RowStandard value={this.props.energyValue} max={3.0774132} label={formatMessage(messages.standardAnsiZ871GogglesLabel)} />
-        <RowStandard value={this.props.energyValue} max={4.431475008} label={formatMessage(messages.standardAnsiZ871FaceshieldsLabel)} />
-        <RowStandard value={this.props.energyValue} max={7.150814378435543} label={formatMessage(messages.standardMilPrf31013Label)} />
-        <RowStandard value={this.props.energyValue} max={15.02369943189588} label={formatMessage(messages.standardMilDtl43511DLabel)} />
-        <RowText glyph="alert" text={formatMessage(messages.stanag2920Warning)} />
+        <RowStandard value={this.props.energyValue} name="EN 166 F"
+          label={formatMessage(messages.standardEn166FLabel)} />
+        <RowStandard value={this.props.energyValue} name="EN 166 B"
+          label={formatMessage(messages.standardEn166BLabel)} />
+        <RowStandard value={this.props.energyValue} name="EN 166 A"
+          label={formatMessage(messages.standardEn166ALabel)} />
+        <RowStandard value={this.props.energyValue} name="STANAG 4296"
+          label={formatMessage(messages.standardStanag4296Label)} />
+        <RowStandard value={this.props.energyValue} name="ANSI Z87.1+" type="spectacles"
+          label={formatMessage(messages.standardAnsiZ871SpectaclesLabel)} />
+        <RowStandard value={this.props.energyValue} name="ANSI Z87.1+" type="goggles"
+          label={formatMessage(messages.standardAnsiZ871GogglesLabel)} />
+        <RowStandard value={this.props.energyValue} name="ANSI Z87.1+" type="faceshields"
+          label={formatMessage(messages.standardAnsiZ871FaceshieldsLabel)} />
+        <RowStandard value={this.props.energyValue} name="MIL-PRF-31013"
+          label={formatMessage(messages.standardMilPrf31013Label)} />
+        <RowStandard value={this.props.energyValue} name="MIL-DTL-43511D"
+          label={formatMessage(messages.standardMilDtl43511DLabel)} />
+        <RowFooter glyph="alert" text={formatMessage(messages.rangeMax0Warning)} />
+        <RowFooter glyph="alert" text={formatMessage(messages.stanag2920Warning)} />
       </div>
     );
   }

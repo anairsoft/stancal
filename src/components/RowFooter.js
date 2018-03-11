@@ -14,33 +14,20 @@ import React, { Component } from 'react';
 import {
   Col,
   Glyphicon,
-  Label,
   Row,
 } from 'react-bootstrap';
 import { isNullOrUndefined } from 'util';
 
-class RowText extends Component {
+class RowFooter extends Component {
   render() {
-    if (isNullOrUndefined(this.props.text)) {
-      return <div />;
-    }
-    const glyph = isNullOrUndefined(this.props.glyph) 
-      ? null
-      : <span><Glyphicon glyph={this.props.glyph} /> &nbsp; </span>;
-    const link = isNullOrUndefined(this.props.link)
-      ? null
-      : <a href={this.props.link} target="_blank" rel="noopener noreferrer"><Glyphicon glyph="info-sign" /></a>
+    const glyph = isNullOrUndefined(this.props.glyph) ? null : <Glyphicon glyph={this.props.glyph} />;
     return (
       <Row>
         <Col sm={2} xsHidden></Col>
-        <Col sm={2} xs={6}>{this.props.label}</Col>
-        <Col sm={3} xs={5}><Label bsStyle={this.props.bsStyle}>{glyph}{this.props.text}</Label></Col>
-        <Col sm={1} xs={1} className="right">
-          {link}
-        </Col>
+        <Col sm={7} className="footer">{glyph}{this.props.text}</Col>
       </Row>
     );
   }
 }
 
-export default RowText;
+export default RowFooter;

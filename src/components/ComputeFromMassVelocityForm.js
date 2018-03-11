@@ -19,6 +19,7 @@ import {
 import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
 import ComputationResult from './ComputationResult';
 import InputValueUnit from './InputValueUnit';
+import Unit from '../core/Unit.js';
 import { isNullOrUndefined, isString } from 'util';
 
 const messages = defineMessages({
@@ -94,10 +95,10 @@ class ComputeFromMassVelocityForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      massRatio: 0.001,
+      massRatio: Unit.getUnitRatio('g', 'mass'),
       massUnit: 'g',
       massValue: '0.20',
-      velocityRatio: 0.3048,
+      velocityRatio: Unit.getUnitRatio('fps', 'velocity'),
       velocityUnit: 'fps',
       velocityValue: '350',
     };
@@ -119,19 +120,11 @@ class ComputeFromMassVelocityForm extends Component {
       [event.target.name]: event.target.value,
     });
     if(event.target.type === 'select-one') {
-      switch(event.target.value) {
+      switch(event.target.name) {
         // massRatio & massUnit
-        case 'mg' : this.setState({massRatio: 0.000001}); break;
-        case 'g' : this.setState({massRatio: 0.001}); break;
-        case 'kg' : this.setState({massRatio: 1}); break;
-        case 'gr' : this.setState({massRatio: 0.0000647989}); break;
-        case 'lb' : this.setState({massRatio: 0.453592}); break; 
-        case 'oz' : this.setState({massRatio: 0.0283495}); break; 
+        case 'massUnit' : this.setState({massRatio: Unit.getUnitRatio(event.target.value, 'mass')}); break;
         // velocityRatio & velocityUnit
-        case 'm/s' : this.setState({velocityRatio: 1}); break;
-        case 'km/h' : this.setState({velocityRatio: 0.277778}); break;
-        case 'fps' : this.setState({velocityRatio: 0.3048}); break;
-        case 'mph' : this.setState({velocityRatio: 0.44704}); break;
+        case 'velocityUnit' : this.setState({velocityRatio: Unit.getUnitRatio(event.target.value, 'velocity')}); break;
         default: console.log('Unknown unit: {event.target.name}={event.target.value} !'); break;
       }
     }
@@ -171,6 +164,9 @@ class ComputeFromMassVelocityForm extends Component {
   }
 
   computeRangeMax(m, h, a, v0, k) {
+    if(v0 < 1 || v0 > 272) {
+      return NaN;
+    }
     var max = NaN;
     for(var x = 0; x < 1000; x = x + 0.1) {
       var y = this.computeYx(x, m, 2, 0, v0, k);

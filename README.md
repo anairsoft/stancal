@@ -25,16 +25,6 @@ __________________________________________________
 * Development mode: `yarn start`
 * Production mode: `yarn build`, then explore folder `./build`
 
-### Translations
-
-1. Declare new supported languages:
-   1. Update `languages: [...],` in file `scripts/translate.js`
-   2. Update language detection logic in file `src/index.js`
-2. Update translation files with:
-   1. `npm run translate:extract` (or `npm run translate:extract:win` on Windows)
-   2. `npm run translate:build`
-   3. Translate the new languages in `src/lang/*.json` files
-
 __________________________________________________
 
 ## Licence terms

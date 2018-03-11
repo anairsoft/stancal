@@ -13,26 +13,25 @@
 import React, { Component } from 'react';
 import {
   Col,
+  Glyphicon,
   Label,
   Row,
 } from 'react-bootstrap';
-import { isNullOrUndefined } from 'util';
 
-class RowValueUnit extends Component {
+class RowStandards extends Component {
   render() {
-    if(isNullOrUndefined(this.props.value) || isNaN(this.props.value) || this.props.value.length === 0) {
-      return <Row />
-    }
-    const comment = isNullOrUndefined(this.props.comment) ? null : ' (' + this.props.comment + ')';
-    const labelSm = isNullOrUndefined(this.props.labelSm) ? 3 : this.props.labelSm;
+    const standards = this.props.standards.map((standard, index) => {
+      return (
+        <span key={index}><Label bsStyle="success"><Glyphicon glyph="ok" /> &nbsp; {standard.name}</Label> &nbsp; </span>
+      );
+    });
     return (
       <Row>
         <Col sm={2} xsHidden></Col>
-        <Col sm={labelSm} xs={6}>{this.props.label}</Col>
-        <Col sm={3} xs={6}><Label bsStyle={this.props.bsStyle}>{this.props.value} {this.props.unit}{comment}</Label></Col>
+        <Col sm={6} xs={12}>{standards}</Col>
       </Row>
     );
   }
 }
 
-export default RowValueUnit;
+export default RowStandards;
