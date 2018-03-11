@@ -25,7 +25,7 @@ class RowValueUnit extends Component {
     }
     const comment = isNullOrUndefined(this.props.comment) ? null : ' (' + this.props.comment + ')';
     const labelSm = isNullOrUndefined(this.props.labelSm) ? 3 : this.props.labelSm;
-    const labelXs = isNullOrUndefined(this.props.labelXs) ? 3 : this.props.labelXs;
+    const labelXs = isNullOrUndefined(this.props.labelXs) ? 6 : this.props.labelXs;
     return (
       <Row>
         <Col sm={2} xsHidden></Col>
