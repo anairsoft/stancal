@@ -50,5 +50,5 @@
     },
     ```
 
-2. If needed, add pictures of the product in `public/images/products` folder. Naming convention for pictures is `productBrand_productName.jpg`.
+2. If needed, add pictures of the product in `public/images/products` folder. Naming convention for pictures is `productBrand_productName.jpg`. Please don't add image with larger size bigger than 1024px or more than 90% JPG quality.
 3. [Submit the Pull Request.](https://github.com/anairsoft/stancal/compare)
