@@ -32,7 +32,7 @@
    {
         "brand": "", // Brand of the product
         "name": "",  // Name of the product
-        "type": "",
+        "type": "",  // Type of the product, either "spectacles", "goggles" or "faceshields"
         "standards": [
             { "name": "" }, // Standards matched by the product
             { "name": "", "velocity": 0, "mass": 0 }, // For some standards, it is needed to provide the mass and velocity of the projectile used for high velocity impact tests. velocity is in m/s and mass in kg.
