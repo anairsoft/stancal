@@ -16,6 +16,10 @@ body {
   font-family: sans-serif;
 }
 
+.carousel-inner > .item > img {
+  margin: auto;
+}
+
 .container > .footer {
   margin: 1em;
 }
