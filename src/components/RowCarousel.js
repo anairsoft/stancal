@@ -22,35 +22,34 @@ class RowCarousel extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      height: 0,
-      loaded: 0,
+      heights: [],
     };
     this.handleLoad = this.handleLoad.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      heights: [],
+    });
+  }
+
   handleLoad(event) {
     const height = event.target.offsetHeight;
-    const loaded = this.state.loaded;
-    console.log(this.state.loaded, this.state.height, height);
-    if (height > this.state.height) {
-      console.log(height);
-      this.setState({
-        height: height,
-      });
-    }
-    this.setState({
-      loaded: loaded + 1,
-    })
-    console.log(loaded);
+    // TODO: Compute height for hidden images
+    // TODO: Refresh size after resize
+    console.log(height, event.target.src);
+    this.setState((prevState) => {
+      return {heights: prevState.heights.concat([height])};
+    });
   }
 
   render() {
     if(isNullOrUndefined(this.props.images) || this.props.images.length === 0) {
       return <div />;
     }
-    const style = /*this.state.loaded === this.props.images.length 
+    const style = /*this.state.heights.length === this.props.images.length 
       ? {
-        'min-height': this.state.height + 'px',
+        'min-height': Math.max(this.state.heights) + 'px',
       } :*/ { };
     const images = this.props.images.map((image, index) => {
       return (
