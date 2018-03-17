@@ -34,8 +34,7 @@ class RowCarousel extends Component {
   }
 
   handleLoad(event) {
-    const height = event.target.offsetHeight;
-    // TODO: Compute height for hidden images
+    const height = event.target.naturalHeight;
     // TODO: Refresh size after resize
     console.log(height, event.target.src);
     this.setState((prevState) => {
@@ -47,13 +46,13 @@ class RowCarousel extends Component {
     if(isNullOrUndefined(this.props.images) || this.props.images.length === 0) {
       return <div />;
     }
-    const style = /*this.state.heights.length === this.props.images.length 
+    const style = this.state.heights.length === this.props.images.length 
       ? {
-        'min-height': Math.max(this.state.heights) + 'px',
-      } :*/ { };
+        'height': Math.max.apply(Math, this.state.heights) + 'px',
+      } : { };
     const images = this.props.images.map((image, index) => {
       return (
-        <Carousel.Item key={index}>
+        <Carousel.Item key={index} style={style}>
           <img src={image} alt="" onLoad={this.handleLoad} />
         </Carousel.Item>
       );
