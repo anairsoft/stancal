@@ -71,7 +71,7 @@ body {
 }
 
 .footer .glyphicon {
-  padding-right: 0.5em;
+  margin-right: 0.5em;
 }
 
 .navbar-brand {
@@ -89,4 +89,20 @@ body {
 
 .right {
   text-align: right;
+}
+
+.spinner-10s-cw {
+  animation: spinner-clockwise 10s infinite linear;
+}
+
+@keyframes spinner-clockwise {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
 }

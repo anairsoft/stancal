@@ -134,9 +134,9 @@ class App extends Component {
                 Distributed under the terms of the GNU GPL v3 license." />
             </Row>
             <Row>
-              <Glyphicon glyph="flag" />
               <a href={'https://github.com/anairsoft/stancal/tree/' + process.env.REACT_APP_GIT_COMMIT_HASH_FULL}
                 target="_blank" rel="noopener noreferrer">
+                <Glyphicon glyph="cog" className="spinner-10s-cw" />
                 <FormattedMessage
                   id="app.version.text"
                   defaultMessage="ANA StanCal, v{gitTag}+{gitCommit}.{timeCrc32}"
@@ -148,12 +148,14 @@ class App extends Component {
                 </a>
               &nbsp;|&nbsp;
               <a href="?locale=en">
+                <Glyphicon glyph="flag" />
                 <FormattedMessage
                   id="app.lang.en"
                   defaultMessage="English" />
               </a>
               &nbsp;|&nbsp;
               <a href="?locale=fr">
+                <Glyphicon glyph="flag" />
                 <FormattedMessage
                   id="app.lang.fr"
                   defaultMessage="Français" />
