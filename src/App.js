@@ -135,10 +135,17 @@ class App extends Component {
             </Row>
             <Row>
               <Glyphicon glyph="flag" />
-              <FormattedMessage
-                id="app.version.text"
-                defaultMessage="ANA StanCal, v{version}"
-                values={{version: "0.4"}} />
+              <a href={'https://github.com/anairsoft/stancal/tree/' + process.env.REACT_APP_GIT_COMMIT_HASH_FULL}
+                target="_blank" rel="noopener noreferrer">
+                <FormattedMessage
+                  id="app.version.text"
+                  defaultMessage="ANA StanCal, v{gitTag}+{gitCommit}.{timeCrc32}"
+                  values={{
+                    gitTag: process.env.REACT_APP_GIT_TAG_LAST,
+                    gitCommit: process.env.REACT_APP_GIT_COMMIT_HASH_SHORT,
+                    timeCrc32: process.env.REACT_APP_BUILD_TIME_CRC32,
+                  }} />
+                </a>
               &nbsp;|&nbsp;
               <a href="?locale=en">
                 <FormattedMessage
