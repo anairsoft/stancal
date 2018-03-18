@@ -46,7 +46,8 @@ class RowCarousel extends Component {
     if(isNullOrUndefined(this.props.images) || this.props.images.length === 0) {
       return <div />;
     }
-    const style = this.state.heights.length === this.props.images.length 
+    const height = Math.max.apply(Math, this.state.heights);
+    const style = !isNaN(height) && height !== 0
       ? {
         'height': Math.max.apply(Math, this.state.heights) + 'px',
       } : { };
