@@ -139,7 +139,7 @@ class App extends Component {
                 <Glyphicon glyph="cog" className="spinner-10s-cw" />
                 <FormattedMessage
                   id="app.version.text"
-                  defaultMessage="ANA StanCal, v{gitTag}+{gitCommit}.{timeCrc32}"
+                  defaultMessage="ANA StanCal, v{gitTag}+{gitCommit}"
                   values={{
                     gitTag: process.env.REACT_APP_GIT_TAG_LAST,
                     gitCommit: process.env.REACT_APP_GIT_COMMIT_HASH_SHORT,
