@@ -1,7 +1,7 @@
 const manageTranslations = require('react-intl-translations-manager').default;
 
 manageTranslations({
-  messagesDirectory: 'translations',
+  messagesDirectory: 'tmp/translations',
   translationsDirectory: 'src/lang',
   languages: ['en', 'fr'],
 });
