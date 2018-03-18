@@ -22,7 +22,7 @@ class RowStandards extends Component {
   render() {
     const standards = this.props.standards.map((standard, index) => {
       return (
-        <span key={index}><Label bsStyle="success"><Glyphicon glyph="ok" /> &nbsp; {standard.name}</Label> &nbsp; </span>
+        <span key={index}><Label bsStyle="success"><Glyphicon glyph="ok" /> &nbsp; {standard.name}</Label> </span>
       );
     });
     return (
