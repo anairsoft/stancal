@@ -18,9 +18,9 @@
 
 1. Declare new supported languages:
    1. Update `languages: [...],` in file `scripts/translate.js`
-   2. Update language detection logic in file `src/index.js`
+   2. Update `const locales = [...],` in file `src/index.js`
 2. Update translation files with:
-   1. `npm run translate:extract` (or `npm run translate:extract:win` on Windows)
+   1. `npm run translate:extract`
    2. `npm run translate:build`
    3. Translate the new languages in `src/lang/*.json` files
 
@@ -43,7 +43,7 @@
             { "lang": "fr", "value": "" }  // Link to product documentation, French
         ],
         "pictures": [
-            "", // Provide the links to at least 1 and up to 3 pictures of the product
+            "", // Provide the links to at least 1 and ideally 3 pictures of the product
             "", // Second picture
             ""  // Third picture
         ]

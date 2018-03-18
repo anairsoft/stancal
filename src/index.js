@@ -16,35 +16,37 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import './index.css';
 import { addLocaleData, IntlProvider } from 'react-intl';
-import enLocale from 'react-intl/locale-data/en';
-import frLocale from 'react-intl/locale-data/fr';
-import enLang from './lang/en';
-import frLang from './lang/fr';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 function getQueryParameter(name) {
-    return unescape(window.location.search
-        .replace(new RegExp("^(?:.*[&\\?]" + escape(name)
-            .replace(/[.+*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+  return unescape(window.location.search
+    .replace(new RegExp("^(?:.*[&\\?]" + escape(name)
+      .replace(/[.+*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }
 
+const locales = ['en', 'fr'];
+const defaultLocale = 'en';
 const queryLocale = getQueryParameter('locale');
 
-addLocaleData([...enLocale, ...frLocale]);
 const locale = queryLocale
-    || (navigator.languages && navigator.languages[0])
-    || navigator.language
-    || navigator.userLanguage;
+  || (navigator.languages && navigator.languages[0])
+  || navigator.language
+  || navigator.userLanguage;
 const localeShort = locale.toLowerCase().split(/[_-]+/)[0];
-const messages = localeShort === 'fr' ? frLang : enLang;
+const messages = locales.includes(localeShort)
+  ? require('./lang/' + localeShort)
+  : require('./lang/' + defaultLocale);
+addLocaleData(locales.includes(localeShort)
+  ? require('react-intl/locale-data/' + localeShort)
+  : require('react-intl/locale-data/' + defaultLocale));
 
 ReactDOM.render(
-    <IntlProvider
-        locale={locale}
-        messages={messages}>
-        <App />
-    </IntlProvider>, 
-    document.getElementById('root'));
+  <IntlProvider
+    locale={locale}
+    messages={messages}>
+    <App />
+  </IntlProvider>, 
+document.getElementById('root'));
 
 registerServiceWorker();
