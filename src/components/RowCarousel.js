@@ -31,9 +31,11 @@ class RowCarousel extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      heights: [],
-    });
+    if(this.props.images !== nextProps.images) {
+      this.setState({
+        heights: [],
+      });
+    }
   }
 
   handleLoad(event) {
