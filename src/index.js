@@ -23,10 +23,19 @@ import frLang from './lang/fr';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+function getQueryParameter(name) {
+    return unescape(window.location.search
+        .replace(new RegExp("^(?:.*[&\\?]" + escape(name)
+            .replace(/[.+*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+}
+
+const queryLocale = getQueryParameter('locale');
+
 addLocaleData([...enLocale, ...frLocale]);
-const locale = (navigator.languages && navigator.languages[0]) ||
-                     navigator.language ||
-                     navigator.userLanguage;
+const locale = queryLocale
+    || (navigator.languages && navigator.languages[0])
+    || navigator.language
+    || navigator.userLanguage;
 const localeShort = locale.toLowerCase().split(/[_-]+/)[0];
 const messages = localeShort === 'fr' ? frLang : enLang;
 

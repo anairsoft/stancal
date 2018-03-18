@@ -133,6 +133,25 @@ class App extends Component {
                 defaultMessage="Copyright 2018 Association de Normalisation de l'Airsoft.
                 Distributed under the terms of the GNU GPL v3 license." />
             </Row>
+            <Row>
+              <Glyphicon glyph="flag" />
+              <FormattedMessage
+                id="app.version.text"
+                defaultMessage="ANA StanCal, v{version}"
+                values={{version: "0.4"}} />
+              &nbsp;|&nbsp;
+              <a href="?locale=en">
+                <FormattedMessage
+                  id="app.lang.english"
+                  defaultMessage="English" />
+              </a>
+              &nbsp;|&nbsp;
+              <a href="?locale=fr">
+                <FormattedMessage
+                  id="app.lang.french"
+                  defaultMessage="Français" />
+              </a>
+            </Row>
           </div>
         </Grid>
       </div>
