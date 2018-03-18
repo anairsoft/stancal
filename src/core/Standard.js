@@ -64,7 +64,6 @@ class Standard {
         }
         return a.energy - b.energy;
       });
-    console.log(highest);
     return highest[highest.length - 1];
   }
 }

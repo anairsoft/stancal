@@ -57,7 +57,6 @@ class RowCarousel extends Component {
     const height = Math.max.apply(Math, this.state.heights)
       * this.state.dimensions.width
       / this.state.width;
-    console.log(height, this.state.dimensions.width, this.state.width);
     const style = !isNaN(height) && height !== 0
       ? {
         'height': height + 'px',
