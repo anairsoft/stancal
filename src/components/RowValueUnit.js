@@ -25,10 +25,11 @@ class RowValueUnit extends Component {
     }
     const comment = isNullOrUndefined(this.props.comment) ? null : ' (' + this.props.comment + ')';
     const labelSm = isNullOrUndefined(this.props.labelSm) ? 3 : this.props.labelSm;
+    const labelXs = isNullOrUndefined(this.props.labelXs) ? 6 : this.props.labelXs;
     return (
       <Row>
         <Col sm={2} xsHidden></Col>
-        <Col sm={labelSm} xs={6}>{this.props.label}</Col>
+        <Col sm={labelSm} xs={labelXs}>{this.props.label}</Col>
         <Col sm={3} xs={6}><Label bsStyle={this.props.bsStyle}>{this.props.value} {this.props.unit}{comment}</Label></Col>
       </Row>
     );

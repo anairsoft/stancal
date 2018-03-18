@@ -23,6 +23,7 @@ import {
 import { FormattedMessage, defineMessages, intlShape, injectIntl } from 'react-intl';
 import CheckProtectiveEyewearForm from './components/CheckProtectiveEyewearForm'
 import ComputeFromMassVelocityForm from './components/ComputeFromMassVelocityForm'
+import Logo from './images/brand.png';
 
 const messages = defineMessages({
   energyTab: {
@@ -57,7 +58,7 @@ class App extends Component {
             <Navbar.Header>
               <Navbar.Brand>
                 <a href="/">
-                  <img src="images/app/brand.png" alt="ANA" />
+                  <img src={Logo} alt="ANA" />
                 </a>
               </Navbar.Brand>
             </Navbar.Header>
@@ -131,6 +132,34 @@ class App extends Component {
                 id="app.copyright.text"
                 defaultMessage="Copyright 2018 Association de Normalisation de l'Airsoft.
                 Distributed under the terms of the GNU GPL v3 license." />
+            </Row>
+            <Row>
+              <a href={'https://github.com/anairsoft/stancal/tree/' + process.env.REACT_APP_GIT_COMMIT_HASH_FULL}
+                target="_blank" rel="noopener noreferrer">
+                <Glyphicon glyph="cog" className="spinner-10s-cw" />
+                <FormattedMessage
+                  id="app.version.text"
+                  defaultMessage="ANA StanCal, v{gitTag}+{gitCommit}.{timeCrc32}"
+                  values={{
+                    gitTag: process.env.REACT_APP_GIT_TAG_LAST,
+                    gitCommit: process.env.REACT_APP_GIT_COMMIT_HASH_SHORT,
+                    timeCrc32: process.env.REACT_APP_BUILD_TIME_CRC32,
+                  }} />
+                </a>
+              &nbsp;|&nbsp;
+              <a href="?locale=en">
+                <Glyphicon glyph="flag" />
+                <FormattedMessage
+                  id="app.lang.en"
+                  defaultMessage="English" />
+              </a>
+              &nbsp;|&nbsp;
+              <a href="?locale=fr">
+                <Glyphicon glyph="flag" />
+                <FormattedMessage
+                  id="app.lang.fr"
+                  defaultMessage="Français" />
+              </a>
             </Row>
           </div>
         </Grid>

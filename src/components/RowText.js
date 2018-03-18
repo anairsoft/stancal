@@ -33,9 +33,9 @@ class RowText extends Component {
     return (
       <Row>
         <Col sm={2} xsHidden></Col>
-        <Col sm={2} xs={6}>{this.props.label}</Col>
+        <Col sm={2} xs={5}>{this.props.label}</Col>
         <Col sm={3} xs={5}><Label bsStyle={this.props.bsStyle}>{glyph}{this.props.text}</Label></Col>
-        <Col sm={1} xs={1} className="right">
+        <Col sm={1} xs={2} className="right">
           {link}
         </Col>
       </Row>

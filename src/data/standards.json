@@ -1,44 +1,74 @@
 [
     {
         "name": "EN 166 F",
-        "energy": 0.87075
+        "energy": 0.87075,
+        "links": [
+            { "lang": "en", "link": "https://github.com/anairsoft/stancal/wiki/Standards#en-166-f-spectacles" }
+        ]
     },
     {
         "name": "EN 166 B",
-        "energy": 6.192
+        "energy": 6.192,
+        "links": [
+            { "lang": "en", "link": "https://github.com/anairsoft/stancal/wiki/Standards#en-166-b-goggles" }
+        ]
     },
     {
         "name": "EN 166 A",
-        "energy": 15.523
+        "energy": 15.523,
+        "links": [
+            { "lang": "en", "link": "https://github.com/anairsoft/stancal/wiki/Standards#en-166-a-faceshields" }
+        ]
     },
     {
-        "name": "STANAG 2920"
+        "name": "STANAG 2920",
+        "links": [
+            { "lang": "en", "link": "https://github.com/anairsoft/stancal/wiki/Standards#stanag-2920" }
+        ]
     },
     {
         "name": "STANAG 4296",
-        "energy": 7.51
+        "energy": 7.51,
+        "links": [
+            { "lang": "en", "link": "https://github.com/anairsoft/stancal/wiki/Standards#stanag-4296" }
+        ]
     },
     {
         "name": "ANSI Z87.1+",
         "energy": 1.107868752,
-        "type": "spectacles"
+        "type": "spectacles",
+        "links": [
+            { "lang": "en", "link": "https://github.com/anairsoft/stancal/wiki/Standards#ansi-z871-spectacles" }
+        ]
     },
     {
         "name": "ANSI Z87.1+",
         "energy": 3.0774132,
-        "type": "goggles"
+        "type": "goggles",
+        "links": [
+            { "lang": "en", "link": "https://github.com/anairsoft/stancal/wiki/Standards#ansi-z871-goggles" }
+        ]
     },
     {
         "name": "ANSI Z87.1+",
         "energy": 4.431475008,
-        "type": "faceshields"
+        "type": "faceshields",
+        "links": [
+            { "lang": "en", "link": "https://github.com/anairsoft/stancal/wiki/Standards#ansi-z871-faceshields" }
+        ]
     },
     {
         "name": "MIL-PRF-31013",
-        "energy": 7.150814378435543
+        "energy": 7.150814378435543,
+        "links": [
+            { "lang": "en", "link": "https://github.com/anairsoft/stancal/wiki/Standards#mil-prf-31013" }
+        ]
     },
     {
         "name": "MIL-DTL-43511D",
-        "energy": 15.02369943189588
+        "energy": 15.02369943189588,
+        "links": [
+            { "lang": "en", "link": "https://github.com/anairsoft/stancal/wiki/Standards#mil-dtl-43511d" }
+        ]
     }
 ]

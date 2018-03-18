@@ -11,9 +11,54 @@
  */
 
 body {
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+
+.carousel {
+  margin: 0.5em 0;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: inherit;
+  opacity: 0.7;
+  text-shadow: 0 1px 2px rgba(0, 0, 0);
+}
+
+.carousel-control:hover {
+  opacity: 1;
+}
+
+.carousel-indicators li {
+  background-color: #eee;
+  box-shadow: 1px 0px black, -1px 0px black, 0px 1px black, 0px -1px black;
+  opacity: 0.5;
+}
+
+.carousel-indicators li.active {
+  height: 10px;
+  opacity: 0.9;
+  margin: 1px;
+  width: 10px;
+}
+
+.carousel-indicators li:hover {
+  opacity: 1;
+}
+
+.carousel-inner > .item > img {
+  border-radius: 8px;
+  margin: auto;
+}
+
+.carousel-inner > .item.active > img,
+.carousel-inner > .item.next > img,
+.carousel-inner > .item.prev > img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .container > .footer {
@@ -26,7 +71,7 @@ body {
 }
 
 .footer .glyphicon {
-  padding-right: 0.5em;
+  margin-right: 0.5em;
 }
 
 .navbar-brand {
@@ -44,4 +89,20 @@ body {
 
 .right {
   text-align: right;
+}
+
+.spinner-10s-cw {
+  animation: spinner-clockwise 10s infinite linear;
+}
+
+@keyframes spinner-clockwise {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
 }

@@ -22,8 +22,8 @@ import Standard from '../core/Standard';
 
 class RowStandard extends Component {
   render() {
-    const max = Standard.getStandardEnergy(this.props.name, this.props.type);
-    const progress = 100 * this.props.value / max;
+    const standard = Standard.getStandard(this.props.name, this.props.type);
+    const progress = 100 * this.props.value / standard.energy;
     var style = "danger", glyph = "remove";
     if (progress < 90) {
       style = "success";
@@ -36,10 +36,9 @@ class RowStandard extends Component {
       <Row>
         <Col sm={2} xsHidden></Col>
         <Col sm={3} xs={4}><ProgressBar bsStyle={style} now={progress} /></Col>
-        <Col sm={3} xs={8}><Label bsStyle={style}><Glyphicon glyph={glyph} /> &nbsp; {this.props.label}</Label></Col>
-        <Col sm={2} xsHidden>
-          <Glyphicon glyph="question-sign" /> &nbsp; 
-          <Glyphicon glyph="new-window" />
+        <Col sm={3} xs={6}><Label bsStyle={style}><Glyphicon glyph={glyph} /> &nbsp; {this.props.label}</Label></Col>
+        <Col sm={1} xs={2} className="right">
+          <a href={standard.links[0].link} target="_blank" rel="noopener noreferrer"><Glyphicon glyph="info-sign" /></a>
         </Col>
       </Row>
     );

@@ -13,8 +13,8 @@
 import React, { Component } from 'react';
 import { defineMessages, intlShape, injectIntl } from 'react-intl';
 import { isNullOrUndefined } from 'util';
+import RowCarousel from './RowCarousel';
 import RowFooter from './RowFooter';
-import RowImages from './RowImages';
 import RowStandards from './RowStandards';
 import RowText from './RowText';
 import RowValueUnit from './RowValueUnit';
@@ -89,9 +89,9 @@ class CheckResult extends Component {
         <RowText label={formatMessage(messages.productLabel)} text={this.props.product.name} link={this.props.product.links[0].value} />
         <RowText label={formatMessage(messages.typeLabel)} text={formatMessage(type)} />
         <RowText label={formatMessage(messages.highestStandardLabel)} text={highestStandardText} />
-        <RowValueUnit label={formatMessage(messages.highestEnergyLabel)} value={highestStandardEnergy} unit="J" labelSm={2} bsStyle="primary" />
+        <RowValueUnit label={formatMessage(messages.highestEnergyLabel)} value={highestStandardEnergy} unit="J" labelSm={2} labelXs={5} bsStyle="primary" />
         <RowStandards standards={this.props.product.standards} type={this.props.product.type} />
-        <RowImages images={this.props.product.pictures} />
+        <RowCarousel images={this.props.product.pictures} />
         <RowFooter glyph="alert" text={formatMessage(messages.dataWarning, {brand: this.props.product.brand})} />
         <RowFooter glyph="copyright-mark" text={formatMessage(messages.picturesWarning, {brand: this.props.product.brand})} />
       </div>
