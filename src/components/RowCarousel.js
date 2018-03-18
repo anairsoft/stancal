@@ -23,8 +23,9 @@ class RowCarousel extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      heights: [],
       dimensions: {},
+      heights: [],
+      width: 0,
     };
     this.handleLoad = this.handleLoad.bind(this);
   }
@@ -41,9 +42,11 @@ class RowCarousel extends Component {
     const width = this.state.dimensions.width;
     const ratio = naturalWidth > width ? width / naturalWidth : 1;
     const height = naturalHeight * ratio;
-    console.log(height, event.target.src);
     this.setState((prevState) => {
-      return {heights: prevState.heights.concat([height])};
+      return {
+        heights: prevState.heights.concat([height]),
+        width: width,
+      };
     });
   }
 
@@ -51,10 +54,13 @@ class RowCarousel extends Component {
     if(isNullOrUndefined(this.props.images) || this.props.images.length === 0) {
       return <div />;
     }
-    const height = Math.max.apply(Math, this.state.heights);
+    const height = Math.max.apply(Math, this.state.heights)
+      * this.state.dimensions.width
+      / this.state.width;
+    console.log(height, this.state.dimensions.width, this.state.width);
     const style = !isNaN(height) && height !== 0
       ? {
-        'height': Math.max.apply(Math, this.state.heights) + 'px',
+        'height': height + 'px',
       } : { };
     const images = this.props.images.map((image, index) => {
       return (
