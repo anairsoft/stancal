@@ -149,13 +149,13 @@ class App extends Component {
               &nbsp;|&nbsp;
               <a href="?locale=en">
                 <FormattedMessage
-                  id="app.lang.english"
+                  id="app.lang.en"
                   defaultMessage="English" />
               </a>
               &nbsp;|&nbsp;
               <a href="?locale=fr">
                 <FormattedMessage
-                  id="app.lang.french"
+                  id="app.lang.fr"
                   defaultMessage="Français" />
               </a>
             </Row>
