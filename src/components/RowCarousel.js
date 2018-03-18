@@ -16,6 +16,7 @@ import {
   Col,
   Row,
 } from 'react-bootstrap';
+import Measure from 'react-measure';
 import { isNullOrUndefined } from 'util';
 
 class RowCarousel extends Component {
@@ -23,6 +24,7 @@ class RowCarousel extends Component {
     super(props, context);
     this.state = {
       heights: [],
+      dimensions: {},
     };
     this.handleLoad = this.handleLoad.bind(this);
   }
@@ -34,8 +36,11 @@ class RowCarousel extends Component {
   }
 
   handleLoad(event) {
-    const height = event.target.naturalHeight;
-    // TODO: Refresh size after resize
+    const naturalHeight = event.target.naturalHeight;
+    const naturalWidth = event.target.naturalWidth;
+    const width = this.state.dimensions.width;
+    const ratio = naturalWidth > width ? width / naturalWidth : 1;
+    const height = naturalHeight * ratio;
     console.log(height, event.target.src);
     this.setState((prevState) => {
       return {heights: prevState.heights.concat([height])};
@@ -62,9 +67,20 @@ class RowCarousel extends Component {
       <Row>
         <Col sm={2} xsHidden></Col>
         <Col sm={6} xs={12}>
-          <Carousel interval={NaN} style={style}>
-            {images}
-          </Carousel>
+          <Measure
+            bounds
+            onResize={(contentRect) => {
+              this.setState({ dimensions: contentRect.bounds })
+            }}
+          >
+            {({ measureRef }) =>
+              <div ref={measureRef}>
+                <Carousel interval={NaN} style={style}>
+                  {images}
+                </Carousel>
+              </div>
+            }
+          </Measure>
         </Col>
       </Row>
     );
